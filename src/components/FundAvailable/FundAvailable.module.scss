@@ -1,0 +1,116 @@
+.fundsAvailable{
+      display: flex;
+      border: 1.5px solid #ffd966;
+      @media screen and (max-width:460px) {
+        height: 28px !important;
+        margin-bottom: 2px !important;
+      }
+    
+      .outerimg{
+        min-height: 40px;
+        @media screen and (max-width:768px) and (min-width:575.5px) {
+          min-height: 26px;
+        }
+        @media screen and (max-width:575.4px) {
+          min-height: 20px;
+          display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    top: 5px;
+        }
+      }
+      .boxes{
+        text-align: center;
+        position: relative;
+    top: -14px;
+    left: -1.5%;
+    @media screen and (max-width:992px) {
+      left: -1%;
+    }
+    @media screen and (max-width:1200px) and (min-width:768px) {
+      top: -12px;
+    }
+    @media screen and (max-width:768px) and (min-width:575.5px) {
+      top: -9px;
+    }
+    @media screen and (min-width:1599px) {
+      // top: -20px;
+    }
+    @media screen and (max-width:575.4px) {
+      top: -11px;
+      // padding-bottom: 5px;
+    }
+        img{
+          width: 65%;
+          @media screen and (max-width:992px) and (min-width:768px) {
+            width: 80%;
+          }
+          @media screen and (max-width:768px) {
+            width: 85%;
+          }
+          @media screen and (min-width:1599pxpx) {
+            width: 80%;
+          }
+        }
+        h4 {
+          width: fit-content;
+          margin: auto;
+          font-weight: 500;
+          @media screen and (max-width:768px) and (min-width:575.5px) {
+            font-size: 12.5px;
+          }
+          @media screen and (max-width:575.4px) {
+            font-size: 10px;
+            // margin-top: 4px;
+          }
+      }
+      }
+      .todayBoxBoost{
+        text-align: center;
+        height: 100%;
+        margin: 0;
+        width: auto;
+        // @media screen and (max-width:1600px) and (min-width:1000px) {
+        //   width: 85%;
+        // }
+        // @media screen and (max-width:1900px) {
+        //   width: 70%;
+        // }
+        h4{
+          @media screen and (min-width:575.4px) {
+            margin-top: 0;
+          // width: 50%;
+          margin-bottom: 0;
+          margin-right: 0;
+          margin-left: 25%;
+          }
+          @media screen and (max-width:767.5px) and (min-width:575.5px) {
+            margin-left: 0%;
+          }
+          @media screen and (max-width:1000px) and (min-width:768px) {
+            margin-left: 12%;
+          }
+          margin-top: 0;
+          // width: 50%;
+          margin-bottom: 0;
+          margin-right: 0;
+        }
+        .boostyellowBox{
+          // width: 50%;
+          width: auto;
+          height: 32px;
+          margin-left: 2%;
+          margin-top: -6px;
+          @media screen and (max-width:575.4px) {
+            width: 16px;
+            height: 16px;
+            margin-top: -1px;
+          }
+        }
+      }
+      
+    }
+
+   
+ 

@@ -1,0 +1,477 @@
+import { useState, useEffect, Fragment } from "react";
+import { portfolioAction } from "src/actions/portfolio.actions";
+import axiosInstance from "src/services/axios";
+import CustomModal from "src/components/CustomModal";
+import "./style.scss";
+
+const InitialSelectedStock = {
+   name: "",
+   symbol: "",
+   mic: "",
+   quantity: 1,
+};
+
+const SellModal = ({ handleTabChangeMain, type, setNewData, closeModal, sellData }) => {
+   var readOnly;
+   if (type === 'sell') {
+      readOnly = 'readOnly'
+   } else {
+      readOnly = false
+   }
+
+
+   const [quantityValue, setQuantityValue] = useState(1);
+
+   const handleChange = event => {
+      setQuantityValue(event.target.value);
+
+      // console.log('value is:', event.target.value);
+   };
+
+   const [message, setMessage] = useState();
+   const [data, setData] = useState([]);
+   const [searchVal, setSearchVal] = useState();
+   const [stocks, setStocks] = useState();
+   const [showDetails, setShowDetails] = useState(false);
+   const [selectedStock, setSelectedStock] = useState(InitialSelectedStock);
+   const [tabData, setTabData] = useState({
+      buy: false,
+      sell: true,
+   });
+   const [status, setStatus] = useState("block");
+
+   const handleBuy = () => {
+      setStatus("none");
+   };
+
+   useEffect(() => {
+      // console.log(searchVal)
+      const getMarketData = async () => {
+         if (searchVal)
+            await axiosInstance
+               .post("/portfolio/", {
+                  action: "search",
+                  search: searchVal,
+               })
+               .then(function (response) {
+                  setData(response.data.tickers);
+                  setShowDetails(false);
+                  // console.log("log:", response);
+               })
+               .catch(function (errors) {
+                  console.log(errors);
+               });
+      };
+      let timer = setTimeout(() => {
+         if (searchVal) getMarketData();
+      });
+      return () => clearTimeout(timer);
+   }, [searchVal]);
+
+   const search = (value) => {
+      setSearchVal(value);
+   };
+
+   // useEffect(() => {
+   //    const addToWatchList = async () => {
+   //       // console.log(stocks);
+   //       if (stocks)
+   //          await axiosInstance
+   //             .post("/watchlist/", stocks)
+   //             .then(function (response) {
+   //                setMessage("Added successfully");
+   //                setNewData(response.data.total);
+   //                // setData(response.data.tickers);
+   //                // console.log("log:", response);
+   //             })
+   //             .catch(function (errors) {
+   //                setMessage("Oops something wrong");
+   //                console.log(errors);
+   //             });
+   //    };
+   //    addToWatchList();
+   // }, [stocks]);
+
+   useEffect(() => {
+      setTimeout(() => setMessage(""), 3000);
+   }, [message]);
+
+   useEffect(() => {
+      // console.log("log: selec", selectedStock);
+   }, [selectedStock]);
+
+   // const addStocks = (market_mic, market_symbol) => {
+   //    let addWatchList = {
+   //       action: "add",
+   //       market_mic: market_mic,
+   //       market_symbol: market_symbol,
+   //    };
+   //    // setStocks({ ...addWatchList });
+   //    setStocks(addWatchList);
+   // };
+
+   const getStockInfo = async (market_mic, market_symbol) => {
+      const stock = data.filter((item) => item.symbol === market_symbol);
+      const res = await portfolioAction({
+         action: "symbol",
+         market_mic,
+         market_symbol,
+      });
+      if (!res || res?.portfolio?.length <= 0) return;
+
+      setSelectedStock({
+         name: stock[0].name,
+         mic: market_mic,
+         price: res.last ? res.last : res.open,
+         quantity: 1,
+         ...res,
+      });
+      setShowDetails(true);
+
+      // console.log("log: res", res);
+   };
+
+   const handleSubmitBuySell = async () => {
+      if (!selectedStock) return alert("Please select stock first!");
+
+      // action: "buy"
+      // market_mic: "XNYS"
+      // market_symbol: "V"
+      // price: 217.16
+      // quantity: 1
+
+      let options = {
+         action: type,
+         market_symbol: sellData.market_symbol,
+         market_mic: sellData.market_mic,
+         quantity: Number(sellData.quantity ? sellData.quantity : quantityValue),
+         price: Number(sellData.price ? sellData.price : sellData.high)*Number(sellData.quantity ? sellData.quantity : quantityValue),
+      };
+      // console.log("log: submit", options);
+      const res = await portfolioAction(options);
+      if (res) {
+         // setNewData(res.total);
+         // sellData(res.total)
+         if (type === 'buy') {
+            // handleTabChangeMain("myprofile")
+         }
+         setNewData(options)
+         closeModal();
+         setMessage(tabData.buy ? "Successfully Buy" : "Successfully Sell");
+      }
+   };
+
+   const handleTabChange = async (e) => {
+      let notChanged = e.target.name === "buy" ? "sell" : "buy";
+      setTabData({
+         [`${e.target.name}`]: e.target.checked,
+         [`${notChanged}`]: !e.target.checked,
+      });
+   };
+
+   // const BuySell = () => {
+   //    return (
+   //       <div className="confirm-order wrapper">
+   //          <div className="input-section">
+   //             <div>
+   //                <h3>QUANTITY</h3>
+   //                <input
+   //                   type="number"
+   //                   name="quantity"
+   //                   id="quantity"
+   //                   placeholder={1}
+   //                   value={selectedStock.quantity}
+   //                   onChange={(e) =>
+   //                      setSelectedStock({
+   //                         ...selectedStock,
+   //                         quantity: parseInt(e.target.value),
+   //                      })
+   //                   }
+   //                />
+   //             </div>
+   //             <div>
+   //                <h3>TOTAL Value</h3>
+   //                <input
+   //                   type="number"
+   //                   name="total"
+   //                   id="total"
+   //                   value={(
+   //                      selectedStock.price * selectedStock.quantity
+   //                   ).toFixed(2)}
+   //                />
+   //             </div>
+
+   //             <button onClick={handleSubmitBuySell}>Confirm Order</button>
+   //          </div>
+
+   //          {/*<div className="tab-content">
+   //          <div className="input-section">
+   //             <div>
+   //                <h3>QUANTITY</h3>
+   //                <input
+   //                   type="number"
+   //                   name="quantity"
+   //                   id="quantity"
+   //                   placeholder={1}
+   //                   value={selectedStock.quantity}
+   //                   onChange={(e) =>
+   //                      setSelectedStock({
+   //                         ...selectedStock,
+   //                         quantity: parseInt(e.target.value),
+   //                      })
+   //                   }
+   //                />
+   //             </div>
+   //             <div>
+   //                <h3>MARKET PRICE</h3>
+   //                <input
+   //                   type="number"
+   //                   name="price"
+   //                   id="price"
+   //                   value={selectedStock.price}
+   //                />
+   //             </div>
+   //             <div>
+   //                <h3>TOTAL Value</h3>
+   //                <input
+   //                   type="number"
+   //                   name="total"
+   //                   id="total"
+   //                   value={(
+   //                      selectedStock.price * selectedStock.quantity
+   //                   ).toFixed(2)}
+   //                />
+   //             </div>
+   //          </div>
+   //                   </div>*/}
+   //       </div>
+   //    );
+   // };
+
+   return (
+      <CustomModal handleClose={closeModal}>
+         <div className="watchlist-popup">
+            <div className="watchlist-modal">
+               <div style={{ textAlign: "center", color: "#3AD6A1" }}>
+                  {message}
+               </div>
+               {/* <div className="appl-search">
+                  <input
+                     type="search"
+                     id="watchlist"
+                     placeholder="Search"
+                     onChange={(e) => search(e.target.value)}
+                  />
+                  <img src="assets/images/icons/search.svg" alt="" />
+               </div> */}
+               {/* <div className="stock-titleParent">
+                  <div
+                     className="stock-title"
+                     style={{ cursor: "pointer" }}
+                     key={sellData.symbol}
+                  >
+                     <div
+                        className="det"
+                        onClick={() =>
+                           getStockInfo(sellData.mic, sellData.symbol)
+                        }
+                        style={{ display: 'initial' }}
+                     >
+                        <h3>{sellData.market_symbol}</h3>
+                        <h3 className="stkmic">{sellData.market_name}</h3>
+                        <h3 className="stkmic">{sellData.market_mic}</h3>
+                     </div>
+                  </div>
+               </div> */}
+
+               <div className="profile-second-container">
+                  <h3 style={{ "textAlign": "center", "textTransform": "capitalize" }}>{type} Stock</h3>
+                  <div className="row">
+                     <div className="two-half">
+                        <h3>{sellData.market_symbol}</h3>
+                        <h3 className="stkmic">{sellData.market_name}</h3>
+                        <h3 className="stkmic">{sellData.market_mic}</h3>
+                     </div>
+                     <div className="two-half">
+                        <h6>open</h6>
+                        <h4>{sellData.open}</h4>
+                     </div>
+                     <div className="two-half">
+                        <h6>low</h6>
+                        <h4>{sellData.low}</h4>
+                     </div>
+                     <div className="two-half">
+                        <h6>high</h6>
+                        <h4>{sellData.high}</h4>
+                     </div>
+                     <div className="">
+                        <h6>Last</h6>
+                        <h4>{sellData.last}</h4>
+                     </div>
+                  </div>
+                  {/* <div className="buy-btn">
+                     <h6>Sell</h6>
+                  </div> */}
+                  {type && type !== 'watchlist' && (<div className="confirm-order wrapper">
+                     <div className="input-section" style={{
+
+                     }}>
+                        <div>
+                           <h3>QUANTITY</h3>
+                           <input style={{
+                              position: 'inherit',
+                              opacity: 1,
+                              cursor: 'pointer',
+                              height: 'auto',
+                              width: 'auto',
+                           }}
+                              type="number" name="quantity" id="quantity" onChange={handleChange} defaultValue={sellData.quantity ? sellData.quantity : quantityValue} {...readOnly} /></div>
+                        <div>
+                           <h3>TOTAL Value</h3>
+                           <input style={{
+                              position: 'inherit',
+                              opacity: 1,
+                              cursor: 'pointer',
+                              height: 'auto',
+                              width: 'auto',
+                           }} type="number" name="total" id="total" value={sellData.price ? sellData.price : sellData.open} {...readOnly} /></div>
+                        <button onClick={handleSubmitBuySell}>{type} Order</button>
+                     </div>
+                  </div>)}
+               </div>
+
+
+               {/* <div className="profile-second-container">
+
+                  <Fragment key={sellData.market_symbol}>
+                     <div className="row">
+                        <div className="two-half">
+                           <h3>{sellData.market_symbol}</h3>
+                           <h3 className="stkmic">{sellData.market_name}</h3>
+                           <h3 className="stkmic">{selectedStock.market_mic}</h3>
+                        </div>
+                        <div className="two-half">
+                           <h6>open</h6>
+                           <h4>{selectedStock.market_open}</h4>
+                        </div>
+
+                        <div className="two-half">
+                           <h6>low</h6>
+                           <h4>{sellData.low}</h4>
+                        </div>
+
+                        <div className="two-half">
+                           <h6>high</h6>
+                           <h4>{sellData.high}</h4>
+                        </div>
+
+                        <div className="two-half">
+                           <h6>last</h6>
+                           <h4>{sellData.last}</h4>
+                        </div>
+                     </div>
+                     <div
+                        className="buy-btn"
+                        style={{ display: `${status}` }}
+                        onClick={() => handleBuy()}
+                     >
+                        <h6>buy</h6>
+                     </div>
+                     {status == "none" ? BuySell() : ""}
+                  </Fragment>
+               </div> */}
+               {/*<div className="confirm-order wrapper">
+                  <div className="input-section">
+                     <div>
+                        <h3>QUANTITY</h3>
+                        <input
+                           type="number"
+                           name="quantity"
+                           id="quantity"
+                           placeholder={1}
+                           value={selectedStock.quantity}
+                           onChange={(e) =>
+                              setSelectedStock({
+                                 ...selectedStock,
+                                 quantity: parseInt(e.target.value),
+                              })
+                           }
+                        />
+                     </div>
+                     <div>
+                        <h3>TOTAL Value</h3>
+                        <input
+                           type="number"
+                           name="total"
+                           id="total"
+                           value={(
+                              selectedStock.price * selectedStock.quantity
+                           ).toFixed(2)}
+                        />
+                     </div>
+
+                     <button>Confirm Order</button>
+                  </div>
+                           </div>*/}
+
+               {/* <div className="wrapper">
+                  {showDetails && selectedStock && (
+                     <Fragment key={selectedStock.symbol}>
+                        <div className="stock-title">
+                           <div className="det">
+                              <h3>{selectedStock.symbol}</h3>
+                              <p>{selectedStock.name}</p>
+                           </div>
+                           <div className="det">
+                              <h3>{selectedStock.mic}</h3>
+                           </div>
+                        </div>
+                        <div className="tabs">
+                           <div className="tab buy">
+                              <input
+                                 className="tab-switch"
+                                 type="radio"
+                                 id="tab-1"
+                                 name="buy"
+                                 checked={tabData.buy}
+                                 value={tabData.buy}
+                                 onChange={handleTabChange}
+                              />
+                              <label htmlFor="tab-1" className="tab-label">
+                                 BUY
+                              </label>
+                           </div>
+
+                           <div className="tab sell">
+                              <input
+                                 type="radio"
+                                 id="tab-3"
+                                 className="tab-switch"
+                                 name="sell"
+                                 checked={tabData.sell}
+                                 value={tabData.sell}
+                                 onChange={handleTabChange}
+                              />
+                              <label htmlFor="tab-3" className="tab-label">
+                                 SELL
+                              </label>
+                           </div>
+
+                           {BuySell()}
+                        </div>
+                        <div
+                           className="action-button"
+                           onClick={handleSubmitBuySell}
+                        >
+                           <button>Submit</button>
+                        </div>
+                     </Fragment>
+                  )}
+                  </div> */}
+            </div>
+         </div>
+      </CustomModal>
+   );
+};
+
+export default SellModal;

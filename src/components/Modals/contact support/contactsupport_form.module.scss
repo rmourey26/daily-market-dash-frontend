@@ -1,0 +1,189 @@
+@import "/src/common/abstracts/variable.scss";
+@import "/src/common/abstracts/mixins.scss";
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.contactSupportContainer{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0.7;
+        background-color: rgb(0, 0, 0);
+      }
+    .contactSupportMain_container{
+        width: 90%;
+        // min-width: 200px;
+        // min-height: 550px;
+        @media screen and (min-width:992px) and (max-width:1600px) {
+            width:650px;
+        }
+        @media screen and (min-width:1601px) {
+            width:819px;
+        }
+        position: relative;
+        border-radius: 40px;
+        background-color: #A4A4A4;
+        z-index: 1000;
+    //     .btn_closeme{
+    //         position: absolute;
+    // top: 8px;
+    // background: transparent;
+    // z-index: 1;
+    // right: 10px;
+    // color: #fff;
+    // border: none;
+    // width: 20px;
+    // height: 20px;
+    // font-size: 18px;
+    // display: flex;
+    // align-items: center;
+    // box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+    // justify-content: center;
+    // align-items: center;
+    // cursor: pointer;
+    //     }
+        .contactSupportMain{
+            margin-top: 20px;
+           margin-left: 5%;
+           margin-right: 5%;
+            width: 90%;
+            // display: flex;
+            // flex-direction: column;
+            // align-items: center;
+            // justify-content: center;
+            .contactSupportMain_contant{
+                display: flex;
+                flex-direction: column;
+                margin-top: 10px;
+                margin-bottom: 10px;
+        label {
+            color: #222831;
+            margin-bottom: 5px;
+            font-weight: 600;
+            @media screen and (max-width: 768px) {
+              font-size: 13px;
+            }
+            
+          }
+          input{
+            @include place-feild();
+            border: 2.5px solid #ffd966;
+            // max-width: 500px;
+            max-width: 100%;
+            height: 38px;
+            border-radius: 8px;
+            margin-left: 0;
+            margin-bottom: 2px;
+            margin-top: 2px;
+           
+            &:focus {
+              border-color: #ffd966;
+            }
+          }
+        }
+        .Message{
+          height: 120px;
+          input{
+            height: 100%;
+          }
+        }
+        }
+        .support_btn_mainContainer{
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          .support_popup_btn{
+              width: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              height: 85px;
+              margin-top: 0px;
+              @media screen and (max-width:576px) {
+                  margin-top: 15px;
+              }
+              button{
+                  // background-color: #BABABA;
+                  background-color: #9DBAAD;
+                  border: none;
+                  width: 50%;
+                  height: 50px;
+                  font-size: 18px;
+                  font-weight: 500;
+                  border-radius: 50px;
+                  align-items: end;
+                  cursor: pointer;
+                  
+                  @media screen and (max-width:576px) {
+                      height: 40px;
+                      font-size: 16px;
+                  }
+                  
+          
+              }
+             
+          }
+          .support_popup_btn_close{
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 85px;
+            margin-top: 0px;
+            margin-left: 25%;
+            @media screen and (max-width:576px) {
+                margin-top: 15px;
+            }
+            button{
+                // background-color: #BABABA;
+                background-color: #9DBAAD;
+                border: none;
+                width: 50%;
+                height: 50px;
+                font-size: 18px;
+                font-weight: 500;
+                border-radius: 50px;
+                align-items: end;
+                cursor: pointer;
+                
+                @media screen and (max-width:576px) {
+                    height: 40px;
+                    font-size: 16px;
+                }
+                
+        
+            }
+          }
+      }
+      
+    }}
+    .msgPopupHeadContainer{
+      display: flex;
+      justify-content: center; /* Horizontally center */
+      align-items: center;
+      height: 150px;
+      .msgSubContainer{
+        // height: 70%;
+        width: 70%;
+      }
+      .msgPopupPara{
+        font-size: large;
+        // margin: 0;
+        text-align: center;
+        // margin-top: 12%;
+
+    }
+
+    }

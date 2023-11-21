@@ -1,0 +1,19 @@
+.captureButton {
+  height: auto;
+  padding: 10px 14.5px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin: auto;
+  text-align: center;
+  border-radius: 82px;
+  background: #9dbbae;
+  margin-top: 40px;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.retakeButton {
+  @extend .captureButton;
+}

@@ -1,0 +1,168 @@
+.gameCalender {
+    grid-area: PreviousGame;
+    align-self: center;
+    .calen {
+        height: 100%;
+        .calender-event{
+            height: 100%;
+            margin: 0 auto;
+            padding: 0;
+            .img-event {
+                max-height: 100%;
+                width: 465px;
+                margin: 0 auto;
+                ul#calendarContainer {
+                    padding: 0;
+                    margin-top: 2px;
+                    justify-content: center;
+                    display: grid;
+                    grid-template-columns: repeat(7, 1fr);
+                    grid-template-rows: repeat(5, 1fr);
+                    place-items: center;
+                    li{
+                        margin: 0!important;
+                        cursor: pointer;
+                        font-weight: 500;
+                        font-size: 14px;
+                        @media screen and (max-width:992px) {
+                            height: 30px;
+                            font-size: 12px;
+                        }
+                    }
+                    li.active {
+                        color: #fff;
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+                @media screen and (max-width:575px) {
+                    width: 80%;
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width:992.5px) {
+    .container-fluid.PreviousGames {
+        grid-template-rows: 11.78% 13.65% 30.61% 18.435% 26%!important;
+        grid-template-areas:
+            "DeskHead"
+            "PremiumTab"
+            "PreviousGame"
+            "PreHeadSec"
+            "Chatting"
+            "Leadership"!important;
+    }
+    @media screen and (max-height:700px) {
+        .container-fluid.PreviousGames {
+            grid-template-rows: 9.78% 16.65% 32.61% 14.435% 28% !important;
+            grid-template-areas:
+                "DeskHead"
+                "PremiumTab"
+                "PreviousGame"
+                "PreHeadSec"
+                "Chatting"
+                "Leadership"!important;
+        }
+    }
+}
+@media screen and (max-width:390px) and (max-height:669px) {
+    #root .container-fluid.PreviousGames{
+    grid-template-rows: 8.28% 3.454% 9.5% 29.005% 23.2% 20.011% 6.55% !important;
+}
+}
+@media screen and (max-width:700px) {
+    .container-fluid.PreviousGames {
+        grid-template-rows: 8.28% 3.454% 7.5% 27.005% 23.2% 24.011% 6.55% !important;
+        grid-template-areas:
+            "DeskHead"
+            "MobilePreTab"
+            "PremiumTab"
+            "PreviousGame"
+            "PreHeadSec"
+            "Chatting"
+            "MobileGrid"
+            "MobileFooter"!important;
+    }
+}
+@media screen and (max-width:992px) {
+    .gameCalender{
+        margin-top: 2%;
+        .img-event h4 {
+            font-size: 12px;
+            font-weight: 500;
+        }
+    }
+    
+    .container-fluid.PreviousGames .pr-tabs.search-contain {
+        display: none!important;
+    }
+}
+.tabs label.dyn-content.leader-content{
+    visibility: visible!important;
+}
+.items.gameCalender .calender-event {
+    border-right: none;
+}
+@media screen and (max-width:380px) {
+    .gameCalender .calender-event{
+        .img-event{
+            width: 90%!important;
+            ul#calendarContainer li {
+                font-size: 3.5vw!important;
+            }
+        }
+    }
+}
+@media screen and (max-width:700px) {
+    .img-event .row img {
+        right: 29px!important;
+        top: 9px!important;
+        transform: scale(0.8)!important;
+    }
+    .calender-event{
+        max-width: 100%!important;
+        .img-event{
+            width: 360px!important;
+            padding: 10px 15px!important;
+        }
+    }
+}
+@media screen and (max-width: 992px) and (min-width: 700.5px)  {
+    .container-fluid.PreviousGames{
+        grid-template-rows: 8.28% 10.5% 4.45% 24.3009% 25.454% 21.825% 5%!important;
+        grid-template-areas:
+            "DeskHead"
+            "PremiumTab"
+            "MobilePreTab"
+            "PreviousGame"
+            "PreHeadSec"
+            "Chatting"
+            "MobileGrid"!important;
+            .chat, .premium-head-section div[tabindex="0"]{
+                width: 90%!important;
+            }
+            .chat {
+                height: 98.5%;
+                .chat-message-section{
+                    width: 100%!important;
+                }
+            }
+    }
+}
+@media screen and (max-height:630px) and (min-height:531px) {
+    ul#calendarContainer li{
+        height: 31px;
+    }
+}
+.calender-event .img-event{
+    padding: 10px 15px;
+}
+.img-event .row img{
+    top: 10px!important;
+}
+@media screen and (max-width:992px) {
+    .img-event .row img {
+        transform: scale(0.8)!important;
+    }
+}

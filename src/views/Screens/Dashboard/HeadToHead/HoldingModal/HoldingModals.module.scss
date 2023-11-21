@@ -1,0 +1,98 @@
+.modalBackground {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    .modalContainer {
+        width: 60% !important;
+        @media screen and (max-width:768px) {
+            width: 85%!important;
+        }
+        min-width: 200px;
+        min-height: 471px;
+        position: relative;
+        border-radius: 25px;
+        background-color: #5b5f7a;
+        box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+        padding: 25px;
+        z-index: 1000;
+    }
+}
+.container-fluid .premium-profit-loss .premium-card button{
+    transition: 0.3s;
+    cursor: pointer;
+    &:hover{
+        background-color: #fff;
+        color: #272a3b;
+    }
+}
+.HoldingModal{
+    padding: 35px 25px 33px!important;
+    .close{
+        position: absolute;
+        right: 2%;
+        cursor: pointer;
+        top: 2%;
+        @media screen and (max-width:992px) {
+            right: 4%;
+        }
+    }
+    table{
+        width:100%;
+        table-layout: fixed;
+      }
+      .table-header{
+        background-color: rgba(255,255,255,0.3);
+        border-radius: 10px 10px 0 0;
+        th{
+            padding: 20px 15px;
+            text-align: center;
+            font-weight: 500;
+            font-size: 14px;
+            color: #fff;
+            text-transform: uppercase;
+            @media screen and (max-width:992px) {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+          }
+       }
+      .table-content{
+        height:350px;
+        overflow-x:auto;
+        margin-top: 0px;
+        border: 1px solid rgba(255,255,255,0.3);
+        border-radius: 0 0 10px 10px;
+        @media screen and (max-width:992px) {
+            height: 377px;
+        }
+        td{
+            padding: 16.1px;
+            text-align: center;
+            vertical-align:middle;
+            font-weight: 300;
+            font-size: 14px;
+            color: #fff;
+            border-bottom: solid 1px rgba(255,255,255,0.1);
+            @media screen and (max-width:992px) {
+                padding: 10px;
+                line-break: anywhere;
+                font-size: 13px;
+            }
+          }
+      }
+}
+
+@media screen and (max-width:992px) {
+    .container-fluid .modalContainer.HoldingModal{padding: 29px 18px !important;}
+}
+  
+  
+  
+  

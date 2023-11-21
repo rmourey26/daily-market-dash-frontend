@@ -1,0 +1,87 @@
+/*--------------------------------
+GlobalSpinnerLoads
+---------------------------------*/
+.spinner-loads {
+  position: relative;
+  &::before {
+    background-image: url(../../../../../../../public/assets/images/spinner-loading.svg);
+    background-size: cover;
+    content: "";
+    display: block;
+    height: 100px;
+    left: 50%;
+    overflow: visible;
+    position: fixed;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    visibility: visible;
+    width: 100px;
+    z-index: 99999999;
+    @media screen and (max-width: 768px) {
+      height: 70px;
+      width: 70px;
+    }
+  }
+}
+/*--------------------------------
+  GlobalSpinnerLoads Ends
+  ---------------------------------*/
+.row.exclusive-market:nth-child(2) {
+  // border-bottom: none !important;
+}
+.exclusive-market {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #ffd966;
+  &:last-child {
+    border-bottom: none;
+  }
+  @media screen and (min-width: 575.5px) and (max-width: 768px) {
+    align-items: baseline;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 8px 0;
+  }
+  @media screen and (min-width: 768.5px) {
+    &:nth-child(2) {
+      padding-top: 40px;
+    }
+  }
+  @media screen and (min-width: 575.5px) and (max-width: 700px) {
+    &:nth-child(2) {
+      padding-top: 62px;
+    }
+  }
+  @media screen and (min-width: 700.5px) and (max-width: 768px) {
+    &:nth-child(2) {
+      padding-top: 60px;
+    }
+  }
+  @media screen and (max-width: 575px) {
+    &:nth-child(2) {
+      padding-top: 60px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    align-items: inherit;
+    // flex-direction: column;
+  }
+  @media screen and (min-width: 768.1px) {
+    justify-content: space-between;
+  }
+  @media screen and (max-width: 768px) {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 590px) {
+    justify-content: center;
+    // align-items: center;
+  }
+}
+// .exclusive-market:nth-child(2) {
+//   border-bottom: none !important;
+// }

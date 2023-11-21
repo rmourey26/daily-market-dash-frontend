@@ -1,0 +1,996 @@
+.MainLandingDoc {
+  height: 100vh !important;
+  width: 100%;
+  padding: 0 !important;
+  overflow: hidden;
+  .header {
+    position: static;
+  }
+  .contest-calling .tabs {
+    position: relative !important;
+    width: 100% !important;
+  }
+  .contest-calling .tab-contents > div {
+    margin-top: 0 !important;
+    padding: 0 !important;
+    height: calc(100% - 57.5px - 19px);
+    @media screen and (max-width: 992px) {
+      height: calc(100% - 57.5px - 37px);
+    }
+  }
+  .main-landing-profile {
+    padding: 30px 50px 30px;
+    @media screen and (max-width: 992px) {
+      padding: 30px 25px 30px;
+    }
+    overflow: auto;
+    height: 100%;
+  }
+  .MainHeader {
+    grid-area: MainHeader;
+  }
+  .RankingCards {
+    grid-area: RankingCards;
+    align-self: normal;
+    @media screen and (max-height: 780px) {
+      align-self: center;
+    }
+    .ranking-rio {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+  }
+  .ContestTabs {
+    grid-area: ContestTabs;
+    .contest-calling {
+      padding-bottom: 0;
+      height: 100%;
+      margin: 0 auto;
+    }
+    div#stopScroll {
+      height: 100%;
+    }
+  }
+  .FooterTabs {
+    grid-area: FooterNav;
+  }
+}
+.main-landing-profile .row.head .col-3:nth-child(4):before,
+.main-pro .row.head.most-held-icon:before {
+  content: none;
+}
+.MainLandingDoc .contest-calling .tabs.tabs-run {
+  position: relative !important;
+  z-index: 1;
+}
+
+// .row.head.most-held-icon .col-3.stock-data-prnt{
+//     &::before{
+//         content: "";
+//     background: #fff;
+//     position: absolute;
+//     width: 20px;
+//     height: 20px;
+//     top: -25.5px;
+//     transform: rotate(45deg);
+//     left: 26.9%;
+//     }
+//     position: relative;
+// }
+// .main-landing-profile.h2h .leaderboard .row.head{
+//     &::before{
+//         top: -14.5px!important;
+//         right: 3%!important;
+//         content: "";
+//         background: #fff;
+//         position: absolute;
+//         width: 20px;
+//         height: 20px;
+//         transform: rotate(45deg);
+//     }
+//     position: relative;
+// }
+// .main-landing-profile .row.head .col-3:nth-child(4):before{
+//     content: none;
+// }
+@media screen and (max-width: 999px) and (min-width: 768.5px) {
+  .main-landing-profile.h2h .leaderboard .row.head {
+    margin-top: -30px;
+  }
+}
+@media screen and (min-width: 575.5px) and (max-width: 767.5px) {
+  .row.head.most-held-icon
+    + .row.exclusive-market.just-res
+    + .market-sec-last
+    > .row
+    .col-4:nth-child(2)
+    .row {
+    height: 90px !important;
+  }
+}
+@media screen and (min-width: 575.5px) and (max-width: 768px) {
+  .col-3.stock-data-prnt {
+    margin-left: 0;
+  }
+  .main-landing-profile.main-pro .row.exclusive-market .col-3:nth-child(3) {
+    place-self: baseline !important;
+    margin-top: 0 !important;
+  }
+  h4 {
+    font-size: 15px !important;
+    word-break: break-word;
+  }
+  .row.head.most-held-icon + .row.exclusive-market {
+    padding-top: 60px !important;
+  }
+  .stock-data-prnt,
+  .stock-data-prnt h4 {
+    word-break: normal;
+  }
+  .row.head.most-held-icon + .row.exclusive-market + .market-sec-last {
+    margin-top: -40px;
+  }
+  .main-landing-profile.main-pro .row.exclusive-market {
+    flex-direction: row;
+    align-items: baseline;
+    flex-wrap: wrap;
+    padding: 8px 0;
+  }
+  .main-landing-profile.main-pro .row.exclusive-market .col-3:first-child,
+  .main-landing-profile.main-pro .col-3:nth-child(2) {
+    min-width: auto !important;
+    margin-right: 0 !important;
+    width: 25% !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .accountsettings-bg .accountsettings {
+    width: 88%;
+  }
+}
+@media screen and (max-width: 992px) {
+  .container-fluid .UserVs .col-md-6 .box {
+    display: block;
+  }
+}
+@media screen and (max-width: 992px) and (min-width: 768px) {
+  // Dummy Layout
+  .container-fluid .UserVs .col-md-6 .box .row .col-2.player {
+    width: 11% !important;
+  }
+  .UserVs .col-md-6:nth-child(3) .row,
+  .UserVs .col-md-6:nth-child(1) .row {
+    width: 90%;
+  }
+  .container-fluid .UserVs .col-md-6 .row .mlayout-one:nth-child(2) {
+    width: 15% !important;
+    justify-content: center;
+  }
+  .container-fluid
+    .leaderscoreboard
+    > .row
+    .UserVs
+    .col-md-6:nth-child(3)
+    .mlayout-one:nth-child(3) {
+    width: 72% !important;
+    margin-left: 2% !important;
+  }
+  .container-fluid
+    .leaderscoreboard
+    > .row
+    .UserVs
+    .col-md-6:nth-child(1)
+    .mlayout-one:nth-child(3) {
+    width: 72% !important;
+    margin-left: 2% !important;
+  }
+  .container-fluid
+    .leaderscoreboard
+    > .row
+    .UserVs
+    .col-md-6:nth-child(1)
+    .mlayout-one:nth-child(3),
+  .container-fluid
+    .leaderscoreboard
+    > .row
+    .UserVs
+    .col-md-6:nth-child(1)
+    .mlayout-one {
+    display: flex;
+  }
+  .container-fluid .leaderscoreboard .box .row .col-2:nth-child(2) {
+    margin-bottom: 0 !important;
+  }
+  .container-fluid
+    .leaderscoreboard
+    > .row
+    .UserVs
+    .col-md-6:nth-child(1)
+    .mlayout-one:nth-child(3),
+  .container-fluid
+    .leaderscoreboard
+    > .row
+    .UserVs
+    .col-md-6:nth-child(3)
+    .mlayout-one:nth-child(3) {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    .col-2.cat {
+      position: static !important;
+    }
+    .container-fluid .UserVs .col-md-6 .row .mlayout-one:nth-child(2) {
+      justify-content: center;
+    }
+    .col-2.cat-roi,
+    .col-2.cat {
+      width: 50% !important;
+    }
+    // div .container-fluid .UserVs .col-md-6 .row .col-2.player img {
+    //     width: 90% !important;
+    // }
+  }
+
+  // Dummy Layout Ends
+
+  .container-fluid .leaderscoreboard .box .row .col-2:nth-child(2) {
+    margin-bottom: 9%;
+  }
+  .container-fluid .UserVs .col-md-6 .box .row {
+    padding-top: 2.5px !important;
+    padding-bottom: 2.5px !important;
+  }
+  .container-fluid .leaderscoreboard .box {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+  }
+  .container-fluid.StandardUser
+    .leaderscoreboard
+    > .row
+    .UserVs
+    .col-md-6:nth-child(1)
+    .mlayout-one
+    .col-2.cat,
+  .container-fluid.QuarterUser
+    .leaderscoreboard
+    > .row
+    .UserVs
+    .col-md-6:nth-child(1)
+    .mlayout-one
+    .col-2.cat {
+    bottom: 2.5px;
+  }
+  .premium-head-section
+    .premium-profit-loss.desktop
+    .premium-pl-box:last-child
+    .front-side {
+    flex-direction: row-reverse;
+  }
+  .guest-heads {
+    top: 0;
+    transform: translateX(-70%) scale(0.8);
+  }
+  .items.lead-section {
+    padding-bottom: 0 !important;
+    height: 98%;
+    margin: auto;
+  }
+  .container-fluid .leaderscoreboard {
+    overflow-x: hidden;
+    & > .row {
+      row-gap: 2%;
+    }
+  }
+  ul.my-account li:nth-child(2) .notify-me {
+    right: 0;
+    top: 0;
+  }
+  .acive-mess span {
+    top: 0;
+    right: -3px;
+  }
+  .StandardUser,
+  .FinalUser,
+  .QuarterUser {
+    grid-template-rows: 8.28% 3.5% 13.454% 30.005% 25.2% 8.011% 11.55% !important;
+  }
+  .PreviousGames {
+    grid-template-rows: 8.28% 3.5% 24.454% 13.454% 32.751% 6.011% 11.55% !important;
+  }
+  .SemiFinalUser {
+    grid-template-rows: 8.28% 3.5% 13.454% 41.751% 13.454% 8.011% 11.55% !important;
+    .modalBackground::after {
+      opacity: 0.3;
+    }
+  }
+  .premium-profit-loss.desktop {
+    display: flex !important;
+  }
+  .premium-profit-loss.mobile {
+    display: none !important;
+  }
+  .premium-head-section .premium-profit-loss {
+    gap: 10px;
+    height: 100%;
+    align-items: flex-start;
+  }
+  .desktop .premium-card.matches {
+    height: 100%;
+    width: 96%;
+    margin: auto;
+    min-height: 100% !important;
+    align-items: center;
+    display: flex !important;
+  }
+  .desktop .premium-card.matches .front-side {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .premium-head-section
+    .premium-profit-loss.desktop
+    .premium-pl-box:first-child
+    .front-side
+    .top {
+    // width: 19%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between !important;
+    height: 80% !important;
+    flex-direction: column;
+    gap: 0.9rem;
+    margin-bottom: 0 !important;
+  }
+  .container-fluid .desktop .premium-card.matches .front-side .identity {
+    line-height: 0.81;
+    text-align: center !important;
+    height: 100%;
+    justify-content: space-between !important;
+    font-size: calc(2.2vw + 1vh) !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 0;
+  }
+  .premium-head-section
+    .premium-profit-loss.desktop
+    .premium-pl-box:first-child
+    .front-side
+    .top
+    .identity
+    button {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // padding: 4% 20px !important;
+  }
+  .premium-head-section
+    .premium-profit-loss.desktop
+    .premium-pl-box:first-child
+    .front-side
+    .user-profile {
+    // width: 60% !important;
+    margin-left: 6%;
+    flex-direction: row;
+  }
+  .container-fluid .desktop .premium-card.matches .front-side > div {
+    height: 80% !important;
+  }
+  .container-fluid .desktop .premium-card.matches .front-side .pl-rate {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: hidden;
+    max-width: 100%;
+    min-width: 100%;
+    overflow-x: auto;
+    text-align: left;
+  }
+  .container-fluid
+    .desktop
+    .premium-card.matches
+    .front-side
+    .pl-rate
+    .pl-user {
+    line-height: normal;
+    font-size: 2.3vw;
+    margin-top: -2%;
+    display: block !important;
+    text-align: left !important;
+    overflow-wrap: anywhere;
+    overflow: hidden;
+  }
+  .container-fluid
+    .desktop
+    .premium-card.matches
+    .front-side
+    .pl-rate
+    .pl-heading {
+    display: flex;
+    flex: 0 0 50%;
+    align-items: center;
+    gap: 1em;
+  }
+  .container-fluid
+    .desktop
+    .premium-card.matches
+    .front-side
+    .pl-rate
+    .pl-heading
+    h2:nth-child(1) {
+    font-size: 2vw !important;
+    line-height: 1;
+    margin-bottom: 0 !important;
+    font-weight: 500;
+    text-align: left;
+  }
+  .container-fluid
+    .desktop
+    .premium-card.matches
+    .front-side
+    .pl-rate
+    .pl-heading
+    h2:nth-child(2) {
+    font-size: 2.3vw !important;
+    font-weight: normal !important;
+    line-height: 1;
+    margin-bottom: 0 !important;
+    font-weight: 500;
+    text-align: left;
+  }
+  .premium-head-section
+    .premium-profit-loss.desktop
+    .premium-pl-box
+    .front-side
+    .user-pic {
+    // width: 15% !important;
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    line-height: 0;
+  }
+  .premium-head-section
+    .premium-profit-loss.desktop
+    .premium-pl-box
+    .front-side
+    .user-pic
+    .pl-user {
+    width: 90.01%;
+    text-align: right !important;
+    display: block !important;
+    overflow-wrap: anywhere;
+    overflow: hidden;
+  }
+  .desktop .premium-card.matches .front-side .user-pic img {
+    max-width: 100% !important;
+    margin-right: 0;
+  }
+
+  // MainLandingPage
+  .main-landing-profile.main-pro {
+    .ranking.market-data img.back-arw {
+      margin-top: 0;
+    }
+    .col-3.stock-data-prnt {
+      margin-left: 0;
+    }
+  }
+}
+// Media Queries
+@media screen and (max-width: 820px) and (min-width: 768px) {
+  .row.head.most-held-icon
+    + .row.exclusive-market.just-res
+    + .market-sec-last
+    > .row
+    .col-4:nth-child(2)
+    .row {
+    height: auto;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .row.head.most-held-icon
+    + .row.exclusive-market.just-res
+    + .market-sec-last
+    > .row
+    .col-4:first-child {
+    height: auto !important;
+  }
+  .MainLandingDoc .market-sec-last > .row .col-4:nth-child(2) {
+    width: 48% !important;
+  }
+}
+@media screen and (min-width: 700px) and (max-width: 768.5px) {
+  .market-first-data .exchange {
+    flex-direction: row !important;
+    border-bottom: none;
+    h4 {
+      text-align: left;
+    }
+  }
+  .marketdatatab .tab-contents .main-landing-profile .container .row {
+    border-bottom: 1px solid #72737c;
+  }
+  .main-landing-profile .container .profile .col-one {
+    h4.pro-content {
+      font-size: 15px;
+      font-weight: 500;
+    }
+    h6.pro-heads {
+      font-size: 14px;
+    }
+  }
+  .sym-buy-btn {
+    img {
+      max-width: 100% !important;
+      width: 20px;
+    }
+    display: block !important;
+    button {
+      background: #d36135 !important;
+      display: block !important;
+      padding: 4.5px 15px;
+      font-size: 14px;
+      border: none;
+      text-align: center;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.4s ease-in-out;
+      line-height: 1;
+    }
+  }
+}
+
+@media screen and (min-width: 575.5px) and (max-width: 992px) {
+  .container-fluid .UserVs .col-md-6 .row .col-2.player img {
+    width: 90% !important;
+  }
+  .premium-head-section div[tabindex="0"],
+  .container-fluid .chat,
+  .container-fluid .leaderscoreboard {
+    width: 90% !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .chat .chat-message-section,
+  .items.mobile-section {
+    width: 100% !important;
+  }
+}
+@media screen and (min-width: 700.5px) and (max-width: 1299.9px) {
+  .rocket-notify {
+    left: auto !important;
+    top: -55px !important;
+    right: 0;
+  }
+}
+@media screen and (min-width: 700.5px) and (max-width: 1299.9px) and (orientation: portrait) {
+  .watchlist-popup .wrapper .input-section div:nth-child(1),
+  .watchlist-popup .wrapper .input-section div:nth-child(2) {
+    justify-content: flex-start !important;
+    margin-left: 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 850px) {
+  .main-landing-profile .container .profile {
+    flex-wrap: wrap;
+    .col-one.delete {
+      width: 100%;
+      justify-content: flex-end;
+    }
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023.5px) {
+  .marketdatatab .main-landing-profile .container.mypro .profile .col-one {
+    h6.pro-heads {
+      font-size: 14px !important;
+    }
+    h4.pro-content {
+      font-size: 15px !important;
+      font-weight: 500;
+    }
+  }
+  .market-first-data .exchange .col-2 {
+    margin-right: 0;
+    // width: 23%;
+    &:first-child {
+      width: 27%;
+      margin-right: 3%;
+    }
+    &:last-child {
+      margin-right: 0 !important;
+    }
+  }
+}
+@media screen and (min-width: 425px) and (max-width: 991.5px) {
+  .row.head.most-held-icon {
+    width: 75% !important;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1199.9px) {
+  .row.head.most-held-icon {
+    width: 73% !important;
+  }
+}
+.MainLandingDoc {
+  @media screen and (max-width: 575px) {
+    .ranking-rio .btns {
+      margin-bottom: 0 !important;
+    }
+  }
+  .ranking-rio .row {
+    column-gap: 10px !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between;
+    p {
+      padding: 0 3px;
+      font-size: 12.5px;
+    }
+  }
+  @media screen and (min-width: 992px) {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas: "MainHeader" "RankingCards" "ContestTabs";
+    grid-template-rows: 10.775% 14.6% 74%;
+    overflow: hidden;
+  }
+  @media screen and (max-width: 992px) {
+    .fixed-nav .nav {
+      position: static !important;
+    }
+    min-height: auto !important;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas: "MainHeader" "RankingCards" "ContestTabs" "FooterNav";
+    grid-template-rows: 9.775% 9% 67.5% 14.5%;
+  }
+  @media screen and (max-width: 575px) {
+    grid-template-rows: 6.775% 7% 64.5% 14.5% !important;
+  }
+}
+@media screen and (max-width: 1366px) and (min-width: 700px) {
+  .header .row {
+    // max-width: 96%!important;
+    // max-width: 90% !important;
+  }
+}
+@media screen and (max-width: 1365.6px) and (min-width: 1360px) {
+  ul.my-account {
+    // margin-right: 95px;
+    margin-right: 55px;
+  }
+}
+@media screen and (max-width: 1360px) and (min-width: 992px) {
+  ul.my-account {
+    // margin-right: 85px;
+    margin-right: 55px;
+  }
+}
+@media screen and (min-width: 1366px) {
+  ul.my-account {
+    // margin-right: 92px !important;
+    margin-right: 97px !important;
+  }
+}
+.outer-home:before {
+  z-index: 1;
+}
+.contest-calling h2 {
+  padding-top: 0;
+}
+@media screen and (max-width: 999px) and (min-width: 768.5px) {
+  .main-landing-profile.h2h .leaderboard .row:nth-child(2) {
+    padding-top: 10px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1199.9px) {
+  .main-landing-profile.main-pro .row.exclusive-market.just-res {
+    flex-wrap: wrap;
+  }
+  .row.exclusive-market.just-res .col-3:nth-child(4) {
+    width: 100% !important;
+  }
+  .market-sec-last > .row .col-4:nth-child(1) {
+    min-width: 20% !important;
+    margin-right: 3% !important;
+  }
+  .market-sec-last > .row .col-4:nth-child(2) {
+    width: 51% !important;
+    margin-right: 0 !important;
+  }
+
+  .market-sec-last > .row .col-4:nth-child(3) {
+    width: 100% !important;
+  }
+  .main-landing-profile.main-pro .market-sec-last > .row {
+    flex-wrap: wrap;
+    gap: 20px;
+    display: flex;
+    align-items: baseline;
+    .mobiline-btn {
+      justify-content: center;
+    }
+  }
+}
+.tab-overlay {
+  // z-index: 2;
+}
+.main-landing-profile.main-pro .row.exclusive-market {
+  &:last-child {
+    border-bottom: none;
+  }
+}
+@media screen and (max-width: 400px) {
+  .main-loader .mobile-btnsexchange .row .col-4 button {
+    // padding: 3px 5px!important;
+    // font-size: 10px !important;
+  }
+  .container-fluid .UserVs .col-md-6 .box .row .col-2 h4 span:last-child {
+    font-size: 2.8vw !important;
+  }
+  .container-fluid .leaderscoreboard > .row .UserVs {
+    .col-md-6:nth-child(3) .mlayout-one:nth-child(3) .col-2.cat h4,
+    .col-md-6:nth-child(1) .mlayout-one:nth-child(3) .col-2.cat h4 {
+      font-size: 2.8vw !important;
+    }
+  }
+}
+.gameCalender .calen .calender-event .img-event {
+  min-height: 195px !important;
+  padding-bottom: 20px;
+}
+@media screen and (min-width: 767.9px) and (max-width: 768.9px) {
+  .sym-buy-btn .delete-now {
+    justify-content: flex-end;
+  }
+  .contest-calling .tab-contents > div {
+    padding-top: 30px !important;
+  }
+  ul.my-account li img {
+    height: 35px !important;
+    width: auto !important;
+  }
+}
+@media screen and (max-width: 992px) and (min-width: 769px) {
+  ul.my-account li:nth-child(2) .notify-me {
+    right: -5px;
+    top: -10px;
+  }
+  .acive-mess span {
+    right: -10px;
+    top: -10px;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 992px) {
+  ul.my-account {
+    margin-right: 88px !important;
+  }
+}
+@media screen and (min-width: 342px) and (max-width: 767.5px) {
+  .header .row {
+    // max-width: 90%!important;
+    width: auto;
+  }
+}
+@media screen and (max-width: 700.5px) and (min-width: 575.1px) {
+  .main-loader.landing-page .ranking-rio {
+    padding-top: 15px !important;
+    padding-bottom: 50px !important;
+  }
+  #root .main-loader.landing-page .contest-calling {
+    padding-top: 120px !important;
+  }
+  .contantDate {
+    top: 145px !important;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1199.9px) {
+  .main-landing-profile .container .profile .col-one h4.pro-content {
+    font-size: 14px !important;
+  }
+  .stock-data-search {
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 1360px) and (min-width: 700px) {
+  .container.symbol-mrkt.listwtc .row {
+    max-width: 100% !important;
+  }
+}
+@media screen and (max-width: 768px) and (min-width: 700px) {
+  .fixed-nav .nav {
+    // background: inherit!important;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 700.5px) {
+  .main-landing-profile.main-pro .ranking.market-data .row.head.most-held-icon {
+    padding-top: 0;
+    margin-top: -10px;
+  }
+  .row.head.most-held-icon + .row.exclusive-market {
+    // padding-top: 35px!important;
+    padding-top: 62px !important;
+  }
+  .fixed-nav .nav {
+    z-index: 1 !important;
+  }
+}
+@media screen and (min-width: 700.6px) and (max-width: 768px) {
+  .main-landing-profile.main-pro .ranking.market-data .row.head.most-held-icon {
+    margin-top: -10px;
+  }
+}
+@media screen and (max-width: 768px) and (min-width: 600px) {
+  .profile-second-container {
+    position: static !important;
+  }
+  .watchlist-modal
+    .profile-second-container.sell-order.wtch
+    > h2
+    ~ .confirm-order.wrapper {
+    position: relative;
+    .rocket-notify {
+      top: 0 !important;
+      transform: rotateX(0) translate(-60%, -130%);
+    }
+  }
+}
+.main-landing-profile.main-pro {
+  .row.head.most-held-icon::after {
+    content: "";
+    background: #fff;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    top: -16px;
+    left: 25.5%;
+  }
+}
+.main-landing-profile.h2h .leaderboard .row.head .col-3:nth-child(3) {
+  position: relative;
+  &::after {
+    // content: "";
+    background: #fff;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    top: -16px;
+    right: -4px;
+  }
+}
+@media screen and (min-width: 999.1px) and (max-width: 1004px) {
+  .main-landing-profile.h2h .leaderboard .row.head .col-3:nth-child(3)::after {
+    top: -27px !important;
+  }
+}
+@media screen and (min-width: 946px) and (max-width: 999px) {
+  .main-landing-profile.h2h .leaderboard .row.head .col-3:nth-child(3)::after {
+    top: -27px !important;
+    right: -90%;
+  }
+}
+@media screen and (max-width: 945.5px) and (min-width: 894px) {
+  .main-landing-profile.h2h .leaderboard .row.head .col-3:nth-child(3)::after {
+    top: -16px !important;
+    right: -90%;
+  }
+}
+
+@media screen and (max-width: 893.5px) and (min-width: 768px) {
+  .main-landing-profile.h2h .leaderboard .row.head .col-3:nth-child(3)::after {
+    top: -24px !important;
+    right: -69%;
+  }
+}
+@media screen and (max-width: 364.4px) {
+  .main-landing-profile.main-pro .row.head.most-held-icon::after {
+    transform: rotate(45deg) scale(0.7);
+    top: -12px !important;
+    left: 33.5% !important;
+  }
+  .row.head.most-held-icon + .row.exclusive-market {
+    padding-top: 44px !important;
+  }
+  #root
+    .main-landing-profile.h2h
+    .leaderboard
+    .lead-head
+    .row.head
+    .col-3:nth-child(3)::after {
+    transform: rotate(45deg) scale(0.7);
+    top: -12px !important;
+    // right: -130%!important;
+    right: -65% !important;
+  }
+}
+@media screen and (max-width: 480px) and (min-width: 364.5px) {
+  .main-landing-profile.main-pro .row.head.most-held-icon::after {
+    transform: rotate(45deg) scale(0.7);
+    top: -12px !important;
+    left: 33.5% !important;
+  }
+  .row.head.most-held-icon + .row.exclusive-market {
+    padding-top: 44px !important;
+  }
+  #root
+    .main-landing-profile.h2h
+    .leaderboard
+    .lead-head
+    .row.head
+    .col-3:nth-child(3)::after {
+    transform: rotate(45deg) scale(0.7);
+    top: -12px !important;
+    // right: -82%!important;
+    right: -65% !important;
+  }
+}
+@media screen and (max-width: 767.5px) and (min-width: 575.5px) {
+  .main-landing-profile.h2h .leaderboard .row.head .col-3:nth-child(3)::after {
+    top: -24px !important;
+    right: -65% !important;
+  }
+}
+@media screen and (max-width: 575.5px) and (min-width: 3.5px) {
+  .main-landing-profile.h2h .leaderboard .row.head .col-3:nth-child(3)::after {
+    top: -17px !important;
+    right: -65% !important;
+  }
+}
+@media screen and (min-width: 480.5px) and (max-width: 999.9px) {
+  .main-landing-profile.main-pro .row.head.most-held-icon::after {
+    left: 35.5%;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .main-landing-profile.main-pro .row.head.most-held-icon::after {
+    left: 29.5%;
+  }
+}
+@media screen and (max-width: 365.1px) {
+  .main-landing-profile.h2h .leaderboard .row.head .col-3:nth-child(3)::after {
+    right: -137% !important;
+  }
+}
+@media screen and (max-width: 767.5px) and (min-width: 700.5px) {
+  .main-landing-profile.h2h .leaderboard .row.head {
+    margin-top: -55px !important;
+  }
+  .main-landing-profile.h2h .leaderboard .row.head .col-3:nth-child(3)::after {
+    top: -25px;
+    right: -50%;
+  }
+  .main-landing-profile.main-pro .ranking.market-data .row.head.most-held-icon {
+    margin-top: -35px;
+  }
+  .main-landing-profile.main-pro .row.head.most-held-icon::after {
+    left: 32.5%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .keyboard-nav-active .nav {
+    display: none;
+  }
+  // .fixed-nav {
+  //     animation-name: keyboardanimation;
+  //     animation-duration: 4s;
+  //     animation-delay: 10s;
+  //     display: block;
+  // }
+}
+
+.uploadAvtarSection {
+  position: relative;
+}

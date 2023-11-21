@@ -1,0 +1,316 @@
+/*--------------------------------
+GlobalSpinnerLoads
+---------------------------------*/
+.spinner-loads {
+  position: relative;
+  &::before {
+    background-image: url(../../../../../public/assets/images/spinner-loading.svg);
+    background-size: cover;
+    content: "";
+    display: block;
+    height: 100px;
+    left: 50%;
+    overflow: visible;
+    position: fixed;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    visibility: visible;
+    width: 100px;
+    z-index: 99999999;
+    @media screen and (max-width: 768px) {
+      height: 70px;
+      width: 70px;
+    }
+  }
+}
+/*--------------------------------
+GlobalSpinnerLoads Ends
+---------------------------------*/
+.watchlist-popup {
+  display: block;
+  .watchlist-modal {
+    h3.stkmic {
+      font-weight: 300;
+    }
+    display: block;
+    .sell-order {
+      display: block;
+      & > h2 {
+        text-align: left;
+        margin-bottom: 30px;
+        padding-bottom: 18px;
+        font-weight: 500;
+        @media screen and (max-width: 575px) {
+          margin-bottom: 0;
+        }
+        @media screen and (max-width: 415px) {
+          padding-bottom: 0px;
+        }
+      }
+      .appl-search {
+        margin-top: 25px;
+        margin-bottom: 25px;
+        @media screen and (max-width: 415px) {
+          margin-top: 12px;
+          margin-bottom: 12px;
+        }
+        input {
+          width: 100%;
+          padding: 10px 10px;
+          border-radius: 10px;
+        }
+        img {
+          display: none;
+        }
+      }
+    }
+    .stock-titleParent {
+      max-height: 320px;
+      overflow-y: auto;
+      height: 100%;
+      .hideDetailList {
+        display: block;
+      }
+      .stock-title {
+        display: flex;
+        margin: 15px 0 0 0;
+        @media screen and (max-width: 415px) {
+          margin: 12px 0 0 0;
+        }
+        padding: 0 10px;
+        justify-content: space-between;
+        align-items: flex-start;
+        .det {
+          padding-right: 0;
+          &:first-child {
+            width: 100%;
+          }
+          &:last-child {
+            display: flex;
+            align-items: center;
+          }
+          h3 {
+            color: #fff;
+            line-height: 1.2;
+          }
+        }
+      }
+    }
+    .profile-second-container {
+      color: #fff;
+      height: 100%;
+      @media screen and (max-width: 768px) {
+        position: relative;
+      }
+      .row {
+        display: flex;
+        align-items: center;
+        @media screen and (min-width: 575.1px) and (max-width: 768px) {
+          text-align: center;
+        }
+        @media screen and (max-width: 1360px) and (min-width: 700px) {
+          max-width: 90% !important;
+        }
+        @media screen and (max-width: 768px) {
+          display: block;
+        }
+        .two-half {
+          width: 17.5%;
+          h6 {
+            text-transform: capitalize;
+            font-weight: 300;
+            font-size: 12px;
+            min-height: 14.5px;
+          }
+          h4 {
+            min-height: 21.5px;
+            word-break: break-word;
+          }
+          @media screen and (max-width: 575px) {
+            width: 100%;
+            margin-right: 0;
+            h6 {
+              width: 30%;
+              margin-bottom: 10px;
+            }
+            h4 {
+              width: 70%;
+            }
+          }
+          @media screen and (min-width: 575.1px) and (max-width: 768px) {
+            width: 100%;
+            margin-right: 0;
+            justify-content: center;
+            h6 {
+              width: 30%;
+              margin-bottom: 10px;
+              word-break: break-word;
+              text-align: left;
+            }
+            h4 {
+              width: 70%;
+              text-align: left;
+            }
+          }
+          &:first-child {
+            margin-right: 30px;
+            width: 30%;
+            @media screen and (min-width: 575.1px) and (max-width: 768px) {
+              text-align: left;
+            }
+            @media screen and (max-width: 768px) {
+              width: 100%;
+              margin-right: 0;
+              display: block;
+              margin-bottom: 20px;
+              padding-top: 15px;
+              min-height: 85px;
+            }
+            @media screen and (max-width: 415px) {
+              padding-top: 10px;
+              margin-bottom: 10px;
+            }
+          }
+          &:not(:first-child) {
+            @media screen and (max-width: 768px) {
+              display: flex;
+              h4 {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/*------------------------------------------------------------------- 
+Bue|Sell Modal Form Styling Begins 
+-------------------------------------------------------------------*/
+.confirm-order.wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 40px auto 0 auto;
+  max-width: 50rem;
+  width: 100%;
+  @media screen and (min-width: 768.5px) {
+    position: relative;
+  }
+  @media screen and (max-width: 768px) {
+    margin: 20px auto 0 auto;
+  }
+  &::before {
+    content: "";
+    display: table;
+  }
+  .rocket-notify {
+    position: absolute;
+    @media screen and (min-width: 1600px) {
+      left: 0;
+      top: -15px;
+    }
+    @media screen and (min-width: 1300px) and (max-width: 1599.9px) {
+      left: 7%;
+      top: -50px;
+    }
+    @media screen and (min-width: 767.5px) and (max-width: 1299.9px) {
+      right: 0;
+      top: -55px;
+    }
+    @media screen and (max-width: 768px) {
+      right: 20px;
+      top: 12%;
+    }
+    img {
+      max-width: 100px;
+      @media screen and (max-width: 700px) {
+        max-width: 70px;
+      }
+    }
+  }
+  .input-section {
+    width: 100%;
+    padding-top: 15px;
+    @media screen and (max-width: 415px) {
+      padding-top: 0;
+    }
+    @media screen and (max-height: 471px) {
+      padding-top: 20px;
+    }
+    div {
+      &:nth-child(1),
+      &:nth-child(2) {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        gap: 25px;
+        align-items: center;
+        @media screen and (max-width: 575px) {
+          margin-bottom: 0;
+        }
+        @media screen and (max-width: 415px) {
+          padding-bottom: 15px !important;
+        }
+      }
+    }
+    h3 {
+      font-size: 14px;
+      text-transform: uppercase;
+      width: 110px;
+    }
+    input {
+      border: none;
+      border-radius: 7px;
+      max-width: 85px;
+      outline: none;
+      padding: 4px;
+      text-align: center;
+    }
+    .notification-mess p {
+      text-align: center;
+      @media screen and (min-width: 700.5px) and (max-width: 1299.9px) {
+        width: 75%;
+        margin: auto;
+      }
+    }
+    .order-type {
+      display: flex;
+      align-items: center;
+      @media screen and (max-width: 575px) {
+        gap: 5%;
+        justify-content: center;
+      }
+      button {
+        margin: 30px auto 0;
+        background: #9DBBAE;
+        color: #fff;
+        font-size: 14px;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 28px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        text-transform: capitalize;
+        @media screen and (max-width: 575px) {
+          padding: 7px 10px;
+          margin-left: 0;
+          margin-right: 0;
+        }
+        @media screen and (max-width: 768px) {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}
+/*------------------------------------------------------------------- 
+Bue|Sell Modal Form Styling Ends
+-------------------------------------------------------------------*/
+.showDetailList{
+display: none;
+}

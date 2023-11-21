@@ -1,0 +1,256 @@
+import { useState } from "react";
+import { MyProfileCollapsedRow } from ".";
+import { SellModal } from "../Modals";
+
+const MyProfileRow = ({ setNewData, stock }) => {
+   const [open, setOpen] = useState(false);
+   const openModal = (type) => setOpen(type);
+   const closeModal = () => setOpen(false);
+   var stockPrice = stock.price;
+   var stockReturns = stock.returns;
+   const handleToggle = () => setOpen(!open);
+   var profitandloss, roi;
+   if (stock.sold == 0 && stock.last != 0) {
+      profitandloss =
+         stock.quantity * stock.last - stock.quantity * stock.price;
+      roi =
+         (stock.quantity * stock.last - stock.quantity * stock.price) /
+         (stock.quantity * 100);
+   } else if (stock.sold == 0 && stock.last == 0) {
+      profitandloss = 0;
+      // profitandloss = ((stock.quantity * stock.close) - (stock.quantity * stock.price))
+      // var roi = ((stock.quantity * stock.close) - (stock.quantity * stock.price)) / ((stock.quantity) * 100)
+      roi = 0;
+   } else if (stock.sold == 1) {
+      profitandloss =
+         stock.quantity * stock.close - stock.quantity * stock.price;
+      roi =
+         (stock.quantity * stock.close - stock.quantity * stock.price) /
+         (stock.quantity * 100);
+   }
+
+   return (
+      <>
+         <div
+            className={`container mypro symbol-mrkt ${open ? "toggle-active" : ""
+               }`}
+            key={stock.sym}
+            style={{ maxWidth: "100%" }}
+         >
+            <div className="row">
+               <h2 className="title" style={{ marginBottom: "10px" }}>
+                  {stock.market_name}
+               </h2>
+               <div className="mobile-symbol-market">
+                  <h2 className="sub-title">{stock.market_symbol}</h2>
+                  <h2 className="pro-title">{stock.market_exchange}</h2>
+               </div>
+            </div>
+            <div className="profile">
+               <div className="col-one">
+                  <h2 className="sub-title">{stock.market_symbol}</h2>
+                  <h2 className="pro-title">{stock.market_exchange}</h2>
+               </div>
+
+               <div className="col-one">
+                  <h6 className="pro-heads">Quantity</h6>
+                  <h4 className="pro-content">{stock.quantity}</h4>
+               </div>
+               <div className="col-one">
+                  <h6 className="pro-heads">Bought</h6>
+                  <h4 className="pro-content">
+                     {stockPrice > 1
+                        ? Number(stockPrice).toFixed(2)
+                        : stockPrice}
+                     {/*{stockPrice}*/}
+                  </h4>
+               </div>
+               <div className="col-one">
+                  <h6 className="pro-heads">Sold</h6>
+                  <h4 className="pro-content">
+                     {stockReturns > 1
+                        ? Number(stockReturns).toFixed(2)
+                        : stockReturns}
+                     {/*{stockReturns}*/}
+                  </h4>
+               </div>
+               <div className="col-one">
+                  <h6 className="pro-heads">P&L</h6>
+                  <h4 className="pro-content">
+                     {profitandloss === 0 ? "" : profitandloss.toFixed(2)}
+                  </h4>
+               </div>
+               <div className="col-one">
+                  <h6 className="pro-heads">ROI</h6>
+                  <h4 className="pro-content">
+                     {roi === 0 ? "" : roi.toFixed(2) + "%"}
+                  </h4>
+               </div>
+               <div className="col-one">
+                  <h6 className="pro-btn" onClick={() => openModal("sell")}>
+                     Sell
+                  </h6>
+                  {/* <h6 className="pro-btn">Sell</h6> */}
+               </div>
+            </div>
+            <div className="profile">
+               <div className="col-one">
+                  <h2 className="sub-title">{stock.market_symbol}</h2>
+                  <h2 className="pro-title">{stock.market_exchange}</h2>
+               </div>
+
+               <div className="col-one">
+                  <h6 className="pro-heads">Open</h6>
+                  <h4 className="pro-content">
+                     {stock.open > 1
+                        ? Number(stock.open).toFixed(2)
+                        : stock.open}
+                     {/*{stock.open}*/}
+                  </h4>
+               </div>
+               <div className="col-one">
+                  <h6 className="pro-heads">Low</h6>
+                  <h4 className="pro-content">
+                     {stock.low > 1 ? Number(stock.low).toFixed(2) : stock.low}
+                     {/*{stock.low}*/}
+                  </h4>
+               </div>
+               <div className="col-one">
+                  <h6 className="pro-heads">High</h6>
+                  <h4 className="pro-content">
+                     {stock.high > 1
+                        ? Number(stock.high).toFixed(2)
+                        : stock.high}
+                     {/*{stock.high}*/}
+                  </h4>
+               </div>
+               <div className="col-one">
+                  <h6 className="pro-heads">Last</h6>
+                  <h4 className="pro-content">
+                     {stock.last > 1
+                        ? Number(stock.last).toFixed(2)
+                        : stock.last}
+                     {/*{stock.last}*/}
+                  </h4>
+               </div>
+               <div className="col-one">
+                  <h6 className="pro-heads">Volume</h6>
+                  <h4 className="pro-content">{stock.volume}</h4>
+               </div>
+            </div>
+            {open && open === "sell" && (
+               <SellModal
+                  type="sell"
+                  setNewData={setNewData}
+                  sellData={stock}
+                  closeModal={closeModal}
+               />
+            )}
+
+            {/* </div> */}
+            {/* <div className="container profile">
+               <div className="row">
+               <h2 className="title">Visa International</h2>
+               </div>
+               <div className="row">
+               <div className="col-one">
+                  
+               </div>
+               
+               <div className="col-one">
+                  <h6 className="pro-heads">Quantity</h6>
+                  <h4 className="pro-content">100</h4>
+               </div>
+               <div className="col-one">
+                  <h6 className="pro-heads">Bought</h6>
+                  <h4 className="pro-content">14.35</h4>
+               </div>
+               <div className="col-one">
+                  <h6 className="pro-heads">Sold</h6>
+                  <h4 className="pro-content">15.25</h4>
+               </div>
+               <div className="col-one">
+                  <h6 className="pro-heads">P&L</h6>
+                  <h4 className="pro-content">90.00</h4>
+               </div>
+               <div className="col-one">
+                  <h6 className="pro-heads">ROI</h6>
+                  <h4 className="pro-content">6.27%</h4>
+               </div>
+               <div className="col-one">
+                  
+               </div>
+               </div>
+               <div className="row">
+               <div className="col-one">
+                  <h2 className="sub-title">V</h2>
+                  <h2 className="pro-title">NYSE</h2>
+               </div>
+               
+               <div className="col-one">
+                  <h6 className="pro-heads">Open</h6>
+                  <h4 className="pro-content">14.34</h4>
+               </div>
+               <div className="col-one">
+                  <h6 className="pro-heads">low</h6>
+                  <h4 className="pro-content">14.35</h4>
+               </div>
+               <div className="col-one">
+                  <h6 className="pro-heads">High</h6>
+                  <h4 className="pro-content">15.25</h4>
+               </div>
+               <div className="col-one">
+                  <h6 className="pro-heads">Last</h6>
+                  <h4 className="pro-content">15.25</h4>
+               </div>
+               <div className="col-one">
+                  <h6 className="pro-heads">Volume</h6>
+                  <h4 className="pro-content">123,456</h4>
+               </div>
+               
+               </div> */}
+            {/* {open && (
+               <div className="col-12 mobile-collapsed">
+                  <MyProfileCollapsedRow
+                     current={stock.current}
+                     bought={stock.bought}
+                  />
+               </div>
+            )} */}
+         </div>
+      </>
+      // <div className={`row ${open ? "toggle-active" : ""}`} key={stock.sym}>
+      //    <div className="col-3">
+      //       <h4>{stock.quantity}</h4>
+      //    </div>
+      //    <div className="col-3">
+      //       <h4>{stock.bought}</h4>
+      //    </div>
+      //    <div className="col-3">
+      //       <h4>4</h4>
+      //    </div>
+      //    <div className="col-3">
+      //       <h4>90.00</h4>
+      //    </div>
+      //    <div className="col-3">
+      //       <h4>6.27%</h4>
+      //    </div>
+      //    <div className="col-3 mobile-tog">
+      //       <div className="mobile-land-tg" onClick={handleToggle}>
+      //          <img src="assets/images/icons/arrow_down.svg" alt="" />
+      //       </div>
+      //    </div>
+
+      //    {open && (
+      //       <div className="col-12 mobile-collapsed">
+      //          <MyProfileCollapsedRow
+      //             current={stock.current}
+      //             bought={stock.bought}
+      //          />
+      //       </div>
+      //    )}
+      // </div>
+   );
+};
+
+export default MyProfileRow;

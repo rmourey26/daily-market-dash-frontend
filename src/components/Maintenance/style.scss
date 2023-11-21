@@ -1,0 +1,90 @@
+.MaintenancePage{
+    overscroll-behavior: none;
+    height: 100vh;
+    height: var(--doc-height);
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: repeat(1, 1fr);
+        // grid-template-rows: 20% 60% 20%;
+        grid-template-rows: 12% 78% 10%;
+        grid-template-areas:
+            "mHeader"
+            "mMaintenance"
+            "mCopyright";
+            .maintainenace-logo{
+                text-align: center;
+                display: flex;
+    align-items: center;
+    justify-content: center;
+                img{
+                    height: auto;
+    width: 90.05px;
+    @media screen and (min-width:700.5px) {
+        width: 150px;
+    }
+                }
+            }
+    .header{
+        position: static;
+        grid-area: mHeader;
+        height: 100%;
+        display: flex;
+        .row{
+            justify-content: center;
+            ul.my-account{
+                display: none;
+            }
+        }
+    }
+    .Maintenance-section{
+        background-color: #fff!important;
+        grid-area: mMaintenance;
+        overflow: auto;
+        padding: 30px 0;
+        .heads{
+            padding-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #272a3b1f;
+            margin-bottom: 15px!important;
+            @media screen and (max-width:992px) {
+                height: auto!important;
+                h1{
+                    font-size: 20px;
+                }
+            }
+        }
+        .heads, .contents {
+            width: 90%;
+            margin: 0 auto;
+        }
+    }
+    .copyright-section{
+        grid-area: mCopyright;
+        width: 90%;
+        margin: 0 auto;
+        .row{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+            @media screen and (max-width:575px) {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                img{
+                    width: 30px;
+                }
+            }
+        }
+        img{
+            max-width:50px;
+        }
+        p{
+            color: #fff;
+            @media screen and (max-width:768px) {
+                font-size: 13px;
+            }
+        }
+    }
+}

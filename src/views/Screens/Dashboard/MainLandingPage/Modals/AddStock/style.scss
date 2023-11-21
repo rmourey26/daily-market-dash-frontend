@@ -1,0 +1,182 @@
+@import "src/styles/scss/abstracts/variable.scss";
+@import "src/styles/scss/abstracts/mixins.scss";
+
+.watchlist-popup {
+
+    .wrapper{
+        max-width: 50rem;
+        width: 100%;
+        margin: 0 auto;
+
+        &::before {
+            content: "";
+            display: table;
+        }
+
+        &::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .stock-title {
+            display: flex;
+            margin: 15px 0 0 0;
+            padding-bottom: 15px;
+        
+            .det {
+                padding-right: 20px;
+        
+                p {
+                    color: #a4a6aa;
+                    font-size: 12px;
+                    margin-top: 2px;
+                    opacity: .75;
+                }
+        
+                h3 {
+                    color: $white;
+                }
+            }
+        }
+
+        .tabs {
+            position: relative;
+            margin: 0;
+            height: 14.75rem;
+
+            .tab {
+                float: left;
+            }
+
+            .tab-content {
+                position: absolute;
+                
+                top: 30px;
+                left: 50%;
+                transform: translate(-50%, 0);
+                color: $white;
+                opacity: 0;
+                transition: all 0.35s;
+
+                z-index: 2;
+                opacity: 1;
+                transition: all 0.35s;
+            }
+
+            .tab.sell label.tab-label {
+                left: -22px;
+            }
+
+            .tab-switch {
+                display: none;
+            }
+
+            .tab-label {
+                position: relative;
+                display: block;
+                padding: 0 1.618em;
+                background: $lightgreyone;
+                color: $white;
+                border-radius: 50px;
+                cursor: pointer;
+                transition: all 0.35s;
+                z-index: 1;
+                border: none;
+                border-radius: 40px;
+                font-size: 14px;
+                font-weight: 600;
+                outline: none;
+                padding: 8px 30px;
+                text-transform: uppercase;
+                top: -0.0625rem;
+        
+                :hover {
+                    top: -0.25rem;
+                    transition: top 0.25s;
+                }
+            }
+
+            .buy {
+                z-index: 2;
+                position: inherit;      
+
+                .tab-switch:checked+.tab-label {
+                    background: $red;
+                    color: $white;
+                    transition: all 0.35s;
+                    z-index: 1;
+                    border: none;
+                    border-radius: 40px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    outline: none;
+                    padding: 8px 30px;
+                    text-transform: uppercase;
+                    top: -0.0625rem;
+                }
+            }   
+
+            .sell {
+                .tab-switch:checked+.tab-label {
+                    background: $btnbg;
+                    color: $white;
+                    transition: all 0.35s;
+                    z-index: 1;
+                    border: none;
+                    border-radius: 40px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    outline: none;
+                    padding: 8px 30px;
+                    text-transform: uppercase;
+                    top: -0.0625rem;               
+                }   
+            }
+        }
+
+        .input-section {
+            padding-top: 45px;
+        
+            div {
+                &:nth-child(1), &:nth-child(2){
+                    display: grid;
+                grid-template-columns: 1fr 1fr;
+                padding-bottom: 20px;
+                gap: 25px;
+                }
+            }
+        
+            h3 {
+                font-size: 14px;
+                text-transform: uppercase;
+                width: 110px;
+            }
+        
+            input {
+                border: none;
+                border-radius: 7px;
+                max-width: 85px;
+                outline: none;
+                padding: 4px;
+                text-align: center;
+            }
+        }
+
+        .action-button {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            padding-top: 8px;
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translate(-50%, 0);
+        
+            button {
+                @include continue-button();
+            }
+        }
+    }
+}
+

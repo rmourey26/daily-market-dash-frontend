@@ -1,0 +1,292 @@
+import React, { useState } from "react";
+import { Formik } from "formik";
+import { useNavigate } from "react-router";
+// import { userInfo } from "src/data/userInfo";
+import { Link } from "react-router-dom";
+import axiosInstance from "src/services/axios";
+import { deleteAllCookies, getCookie } from "src/utils/Cookies";
+import { sha256 } from "js-sha256";
+// import { getCookie, setCookie } from "src/utils/Cookies";
+import { createUser, getUserByEmail } from "src/services/firebase";
+import { useAuth } from "src/hooks/useAuth";
+import { useChat } from "src/hooks/useChat";
+import TourModalPopup from "src/components/TourModalPopup";
+import { extras } from "src/data/constants";
+import "../Dashboard/HeadToHead/style.scss";
+import "../index.scss";
+import moment from "moment/moment";
+import { addSecure } from "src/data/addSecure";
+
+const FirstSignupScreen = () => {
+   const navigate = useNavigate();
+   const { setAuth } = useAuth();
+   const { setChatInitial } = useChat();
+   const [closeModal, setCloseModal] = useState(true);
+   const openModal = () => setCloseModal(false);
+   const [loading, setLoading] = useState(false);
+   let alreadyLoggedInEmail = getCookie("isLoggedIn");
+
+   var date = moment();
+
+   var currentDate = date.format("YYYY-MM-DD");
+   // console.log("currentDate", currentDate);
+
+   const handleEmailSubmit = async (values, setSubmitting) => {
+      setLoading(true);
+      let action = {
+         action: "status",
+         member: values.email,
+      };
+
+      if (currentDate.toString() < addSecure.earlyAccessDate) {
+         await axiosInstance
+            .post("/earlyaccess/", {
+               action: "verify",
+               email: values.email,
+            })
+            .then(async (response) => {
+               if (response.data.status === "unknown") {
+                  // console.log("status", response)
+                  window.location.replace(extras.redirectUrl);
+                  return;
+               } else {
+                  axiosInstance
+                     .post("/members/", action)
+                     .then(async (response) => {
+                        let isUser = getCookie("isLoggedIn");
+                        // let existingData = window.localStorage.getItem("data");
+                        let existingEmail =
+                           window.localStorage.getItem("register");
+                        if (isUser !== values.email) {
+                           deleteAllCookies();
+                        }
+
+                        let data = response.data;
+                        window.localStorage.setItem("appid", data.appid);
+                        window.localStorage.setItem("status", data.status);
+                        let device;
+                        if (
+                           data.status === "exists" &&
+                           existingEmail !== values.email
+                        ) {
+                           device = sha256(data.appid + "+" + values.email);
+                        } else {
+                           device = sha256(data.appid + "+" + values.email);
+                        }
+
+                        window.localStorage.setItem("deviceId", device);
+                        window.localStorage.setItem("register", values.email);
+
+                        //Create User if not exist in firestore
+                        let user = await getUserByEmail(values.email);
+
+                        if (!user) {
+                           const username = values.email.split("@")[0];
+                           await createUser(
+                              values.email,
+                              username,
+                              data.appid,
+                              1
+                           );
+                           user = await getUserByEmail(values.email);
+                        }
+
+                        //Chat set initial
+                        setChatInitial();
+
+                        //Update auth content here
+
+                        setAuth({
+                           uid: data.appid,
+                           userId: user.id,
+                           username: user.username,
+                           email: user.email,
+                           isAuthenticated: false,
+                        });
+                        setLoading(false);
+                        // if (response.data.status === "unknown") {
+                        //    window.location.replace(extras.redirectUrl);
+                        //    return;
+                        // }
+                        if (response.data.status === "exists") {
+                           if (values.email === isUser) {
+                              navigate("/MainLandingPage");
+                              return;
+                           }
+                           navigate("/SecondSignupScreen");
+                           return;
+                        } else {
+                           deleteAllCookies();
+                           navigate("/TermsandConditions");
+                           return;
+                        }
+                     })
+                     .catch(function (error) {
+                        console.log(error);
+                     });
+               }
+            });
+      }
+      // setTimeout(() => {
+      else {
+         axiosInstance
+            .post("/members/", action)
+            .then(async (response) => {
+               let isUser = getCookie("isLoggedIn");
+               // let existingData = window.localStorage.getItem("data");
+               let existingEmail = window.localStorage.getItem("register");
+               if (isUser !== values.email) {
+                  deleteAllCookies();
+               }
+
+               let data = response.data;
+               window.localStorage.setItem("appid", data.appid);
+               window.localStorage.setItem("status", data.status);
+               let device;
+               if (data.status === "exists" && existingEmail !== values.email) {
+                  device = sha256(data.appid + "+" + values.email);
+               } else {
+                  device = sha256(data.appid + "+" + values.email);
+               }
+
+               window.localStorage.setItem("deviceId", device);
+               window.localStorage.setItem("register", values.email);
+
+               //Create User if not exist in firestore
+               let user = await getUserByEmail(values.email);
+
+               if (!user) {
+                  const username = values.email.split("@")[0];
+                  await createUser(values.email, username, data.appid, 1);
+                  user = await getUserByEmail(values.email);
+               }
+
+               //Chat set initial
+               setChatInitial();
+
+               //Update auth content here
+
+               setAuth({
+                  uid: data.appid,
+                  userId: user.id,
+                  username: user.username,
+                  email: user.email,
+                  isAuthenticated: false,
+               });
+               setLoading(false);
+               // if (response.data.status === "unknown") {
+               //    window.location.replace(extras.redirectUrl);
+               //    return;
+               // }
+               if (response.data.status === "exists") {
+                  if (values.email === isUser) {
+                     navigate("/MainLandingPage");
+                     return;
+                  }
+                  navigate("/SecondSignupScreen");
+                  return;
+               } else {
+                  deleteAllCookies();
+                  navigate("/TermsandConditions");
+                  return;
+               }
+            })
+            .catch(function (error) {
+               console.log(error);
+            });
+      }
+      // alert(JSON.stringify(values, null, 2));
+      setSubmitting(false);
+      // }, 400);
+   };
+
+   return (
+      <React.Fragment>
+         <Formik
+            initialValues={{ email: alreadyLoggedInEmail, password: "" }}
+            validate={(values) => {
+               const errors = {};
+               if (!values.email) {
+                  errors.email = "Please enter the email address";
+               } else if (
+                  !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+               ) {
+                  errors.email = "Invalid email address";
+               }
+               return errors;
+            }}
+            onSubmit={async (values, { setSubmitting, setErrors }) => {
+               await handleEmailSubmit(values, setSubmitting);
+            }}
+         >
+            {({
+               values,
+               errors,
+               touched,
+               handleChange,
+               handleBlur,
+               handleSubmit,
+               isSubmitting,
+            }) => (
+               <form onSubmit={handleSubmit}>
+                  <div
+                     className={
+                        loading
+                           ? "welcome-us main-loader frst spinner-loads"
+                           : "welcome-us main-loader frst"
+                     }
+                  >
+                     <div className="app_loader">
+                        <img
+                           src={extras.mainLogo}
+                           alt=""
+                           className="img-fluid"
+                        />
+                     </div>
+                     <div className="place-input">
+                        <h2 className="email-enter">
+                           Enter your email&nbsp;
+                           <br />
+                           address to continue
+                        </h2>
+                        <input
+                           type="email"
+                           name="email"
+                           onChange={handleChange}
+                           onBlur={handleBlur}
+                           value={values.email}
+                           placeholder=""
+                           className="form-control"
+                        />
+                        <span className="form-error">
+                           {errors.email && touched.email && errors.email}
+                        </span>
+                     </div>
+                     <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="dmd-btn"
+                     >
+                        Continue
+                     </button>
+
+                     <div className="tour">
+                        <Link to="" onClick={openModal}>
+                           Click here for a tour
+                        </Link>
+                     </div>
+                  </div>
+               </form>
+            )}
+         </Formik>
+         {closeModal === false && (
+            <TourModalPopup
+               data={extras.FirstSignupScreen.youtube}
+               setCloseModal={setCloseModal}
+            />
+         )}
+      </React.Fragment>
+   );
+};
+
+export default FirstSignupScreen;

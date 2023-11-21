@@ -1,0 +1,12 @@
+#video{
+    text-align: center;
+    margin: 15px 0 10px;
+    iframe {
+        @media screen and (min-width: 992.5px) {
+            min-height: 220px;    
+        }
+        @media screen and (max-width: 992px) {
+            width: 100%;    
+        }
+    }
+}

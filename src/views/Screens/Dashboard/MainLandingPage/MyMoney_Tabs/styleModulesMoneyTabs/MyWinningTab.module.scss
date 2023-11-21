@@ -1,0 +1,77 @@
+
+.myWinnings{
+    display: block;
+    .winningstable{
+        display: block;
+        .winHeads{
+            border-bottom: 0.5px solid #fff;
+            padding: 3px 0 12px 0;
+            margin-bottom: 10px;
+            @media screen and (min-width:1660px) {
+                padding: 3px 0 20px 0;
+            }
+            @media screen and (max-width:768px) {
+                padding: 10px 0 15px 0;
+                margin-bottom: 0;
+            }
+        }
+        .winBody{
+            display: block;
+            .winrow{
+                padding: 10px 0;
+                @media screen and (min-width:1660px) {
+                    padding: 13px 0;
+                }
+                .winCol{
+                    padding-left: 5px;
+                    &:first-child{
+                        padding-left: 0;
+                    }
+                }
+            }
+        }
+        .winrow{
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            .winCol{
+                &:nth-child(1){
+                    width: 19.4%;
+                }
+                &:nth-child(2){
+                    width: 22.5%;
+                }
+                &:nth-child(3){
+                    width: 21.3%;
+                }
+                &:nth-child(4){
+                    width: 21.6%;
+                }
+                &:nth-child(5){
+                    width: 15.20%;
+                }
+                h4{
+                    color: #fff;
+                    font-weight: normal;
+                    font-size: 19px;
+                    text-transform: capitalize;
+                    @media screen and (min-width:1660px) {
+                        font-size: 24px;
+                    }
+                    @media screen and (max-width:768px) {
+                        font-size: 12px;
+                    }
+                    sup{
+                        font-size: 12px;
+                    }
+                }
+            }
+            .red h4{
+                color: #D36135;
+            }
+            .green h4{
+                color: #9DBBAE;
+            }
+        }
+    }
+}

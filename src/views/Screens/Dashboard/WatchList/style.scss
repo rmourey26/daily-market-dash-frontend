@@ -1,0 +1,117 @@
+@import "../../abstracts/variable.scss";
+@import "../../abstracts/mixins.scss";
+
+
+.watchlist-modal{
+    .appl-search {
+        position: relative;
+        margin-top: 25px;
+        margin-bottom: 25px;
+    
+        input {
+            width: 100%;
+            padding: 10px 10px;
+            border-radius: 10px;
+        }
+    
+        img {
+            right: 12px;
+            position: absolute;
+            bottom: 8px;
+            display: none;
+        }
+    }
+    .watch-modal {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .stock-title {
+        display: flex;
+        margin: 15px 0 0 0;
+        padding: 0 10px;
+        justify-content: space-between;
+        align-items: flex-start;
+    
+        .det {
+            padding-right: 0;
+            &:first-child{
+                width: 100%;
+            }
+            &:last-child{
+                display: flex;
+                align-items: center;
+                .plsarw{
+                    width: 17px;
+                    height: 17px;
+                    border: 2px solid $btnbg;
+                    border-radius: 50%;
+                    display: grid;
+                    place-items: center;
+                    margin-left: 15px;
+                    img{
+                        width: 8px;
+                    }
+                }
+            }
+    
+            p {
+                color: #a4a6aa;
+                font-size: 12px;
+                margin-top: 2px;
+                opacity: .75;
+            }
+    
+            h3 {
+                color: $white;
+                line-height: 1.2;
+            }
+        }
+        
+    }
+    h3.stkmic {
+        font-weight: 300;
+    }
+    .action-buttn {
+       
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        padding-top: 8px;
+        position: absolute;
+        bottom: 25px;
+        left: 50%;
+        transform: translate(-50%, 0);
+            button {
+                @include continue-button();
+                color: $white;
+                cursor: pointer;
+                &:hover{
+                    color: $white;
+                }
+            }
+        }
+}
+
+
+.stock-titleParent.subhead {
+    max-height: 280px!important;
+    .stock-title {
+        justify-content: unset;
+        padding: 2px 0 17px 10px;
+    border-bottom: 1px solid #72737c;
+        .det:first-child{
+            width: 30%;
+        }
+}
+    h3 {
+        font-size: 15px;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+}
+.stock-titleParent.subhead .stock-title:last-child{
+    border-bottom: none!important;
+}
+// .watchlist-screen{
+
+// }

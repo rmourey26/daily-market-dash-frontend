@@ -1,0 +1,69 @@
+.infoHomePage{
+    .header-logo{
+        margin-bottom: 15px;
+        img {
+            @media screen and (min-width:767px) {
+                width: 136.05px;
+                margin-left: 20px;
+            }
+        }
+        img {
+            @media screen and (max-width:767px) {
+                width: 90.05px;
+                margin-left: 10px;
+            }
+    }
+        height: 100%;
+    }
+    width: 98%;
+    @media screen and (max-width:767px) {
+        width: 90%;
+    }
+    margin: 20px auto 0;
+    .Infobtn{
+        width: 100%;
+        height: auto;
+        margin-bottom: 19px;
+        margin-top: 19px;
+    }
+    button.dmd-btn {
+        position: relative;
+        // bottom: 2px;
+        top: 4px;
+        transform: translateX(-50%);
+        left: 50%;
+        margin: 0;
+        @media screen and (max-width:992px) {
+            width: 60%;
+    border-radius: 20px;
+    height: auto;
+    color: #fff;
+    padding: 10px 0;
+    font-weight: 500;
+        }
+    }
+    .InfoMessageSectionPage {
+        border: 2.5px solid #FFD966;
+    padding: 6px 15px;
+    @media screen and (max-width:767px) {
+        padding: 18px 20px;
+    }
+        color: #fff;
+        h2{
+            padding-bottom: 30px;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        @media screen and (max-width:992px) {
+            p {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+.InfoMessageSectionPage .panel p {
+    color: #272a3b;
+    padding: 10px 0px 10px 0px;
+}

@@ -1,0 +1,135 @@
+.Learnmore_PointContainer{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0.7;
+        background-color: rgb(0, 0, 0);
+      }
+    .Learnmore_Pointmain_container{
+        width: 90%;
+        height: 471px;
+        padding: 25px;
+        // min-width: 200px;
+        // min-height: 550px;
+        @media screen and (min-width:992.5px) {
+            width:819px;
+        }
+        position: relative;
+        border-radius: 40px;
+        background-color: #A4A4A4;
+        z-index: 1000;
+        .btn_closeme{
+            position: absolute;
+    top: 8px;
+    background: transparent;
+    z-index: 1;
+    right: 10px;
+    color: #fff;
+    border: none;
+    width: 20px;
+    height: 20px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+    justify-content: center;
+    cursor: pointer;
+        }
+
+
+        .lernMore_mainContext_container{
+           margin-top: 20px;
+           overflow-y: auto;
+           height: calc(100% - 25px);
+
+           .learnMore_heading_Para{
+            // width: 95%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            p{
+                text-align: center;
+            }
+           
+           }
+           .learnMore_firstQ{
+            width: 95%;
+            margin-left: 20px;
+            margin-top: 20px;
+           
+        }
+        .learnMore_secondQ{
+            width: 95%;
+            margin-left: 20px;
+            margin-top: 20px;
+            ul{
+                margin-left: 15px;
+                li{
+                    width: 100%;
+                }
+            }
+            
+        }
+        .learnMore_thirdQ{
+            width: 95%;
+            margin-left: 20px;
+            margin-top: 20px;
+            .learnmor_table{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                table {
+                    border-collapse: collapse;
+                    // width: 100%;
+                  }
+                  th, td {
+                    border: 1px solid black;
+                    padding: 8px;
+                    // text-align: center;
+                  }
+                  
+            }
+        }
+
+        .learnMore_fourthQ{
+            width: 95%;
+            margin-left: 20px;
+            margin-top: 20px;
+           
+        }
+
+        .learnMore_fivthQ{
+            width: 95%;
+            margin-left: 20px;
+            margin-top: 20px;
+           
+        }
+
+        .learnMore_sixthQ{
+            width: 95%;
+            margin-left: 20px;
+            margin-top: 20px;
+            margin-bottom: 25px;
+           
+        }
+        }
+    }
+
+
+}

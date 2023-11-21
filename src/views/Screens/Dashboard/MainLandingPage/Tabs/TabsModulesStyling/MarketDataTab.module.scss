@@ -1,0 +1,201 @@
+/*--------------------------------
+GlobalSpinnerLoads
+---------------------------------*/
+.spinner-loads {
+  position: relative;
+  &::before {
+    background-image: url(../../../../../../../public/assets/images/spinner-loading.svg);
+    background-size: cover;
+    content: "";
+    display: block;
+    height: 100px;
+    left: 50%;
+    overflow: visible;
+    position: fixed;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    visibility: visible;
+    width: 100px;
+    z-index: 99999999;
+    @media screen and (max-width: 768px) {
+      height: 70px;
+      width: 70px;
+    }
+  }
+}
+/*--------------------------------
+  GlobalSpinnerLoads Ends
+  ---------------------------------*/
+
+.main-landing-profile.main-pro {
+  display: block;
+  @media screen and (max-width: 768px) {
+    margin-top: -20px;
+  }
+  .ranking.market-data {
+    display: block;
+    .row.head.most-held-icon {
+      @media screen and (min-width: 767.2px) and (max-width: 768.6px) {
+        margin-top: -10px;
+      }
+      &::after {
+        // background: #fff;
+        content: "";
+        height: 20px;
+        left: 25.5%;
+        position: absolute;
+        top: -16px;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        width: 20px;
+        @media screen and (min-width: 480.5px) and (max-width: 999.9px) {
+          left: 35.5%;
+        }
+        @media screen and (max-width: 767.5px) and (min-width: 700.5px) {
+          left: 35.5%;
+        }
+
+        @media screen and (min-width: 1000px) {
+          left: 36%;
+        }
+        @media screen and (max-width: 480px) and (min-width: 364.5px) {
+          left: 35.5% !important;
+          top: -12px !important;
+          -webkit-transform: rotate(45deg) scale(0.7);
+          transform: rotate(45deg) scale(0.7);
+        }
+        @media screen and (max-width: 364.4px) {
+          left: 35.5% !important;
+          top: -12px !important;
+          -webkit-transform: rotate(45deg) scale(0.7);
+          transform: rotate(45deg) scale(0.7);
+        }
+      }
+      background-image: url(../../../../../../../public/assets/Newbg.png);
+      background-repeat: no-repeat;
+      background-position: 20% 49%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      margin-top: -31px;
+      @media screen and (max-width: 767.5px) and (min-width: 700.5px) {
+        margin-top: -35px;
+      }
+      @media screen and (max-width: 575px) {
+        padding-top: 25px;
+        background-position: 20% 0%;
+        background-size: unset;
+      }
+      position: fixed;
+      left: 50%;
+      -webkit-transform: translate(-50%);
+      transform: translate(-50%);
+      width: calc(98% - 5px);
+      max-width: 100%;
+      @media screen and (min-width: 768.5px) {
+        margin-bottom: 0;
+        padding-top: 10px;
+      
+      }
+      @media screen and (min-width: 576px) and (max-width:800px){
+
+        background-position: 20% 0%;
+        background-size: unset;
+      }
+
+      @media screen and (max-width: 700px) {
+        margin-top: -10px;
+
+      }
+      @media screen and (min-width: 700.5px) {
+        padding-top: 10px;
+      }
+      @media screen and (max-width: 700.5px) {
+        padding-top: 0;
+      }
+      @media screen and (max-width: 341px) {
+        border-bottom: 1px solid #72737c;
+      }
+      .col-3.stock-data-prnt {
+        margin-right: 0;
+        padding-top: 17px;
+        padding-bottom: 17px;
+        @media screen and (max-width: 992px) and (min-width: 768px) {
+          margin-left: 0;
+        }
+        @media screen and (max-width: 1100px) {
+          &:first-child {
+            min-width: 50px;
+          }
+        }
+      }
+      h4 {
+        align-items: center;
+        display: inline-flex;
+        width: 100%;
+        @media screen and (max-width: 575px) {
+          font-size: 14px;
+        }
+        @media screen and (min-width: 575.5px) and (max-width: 768px) {
+          font-size: 15px;
+        }
+        @media screen and (min-width: 768.5px) and (max-width: 1199.5px) {
+          font-size: 20px;
+        }
+        @media screen and (min-width: 1200px) and (max-width: 1440px) {
+          font-size: 17px;
+        }
+        @media screen and (min-width: 1440.1px) {
+          font-size: 20px;
+        }
+        @media screen and (max-width: 768px) {
+          padding-left: 10%;
+        }
+        @media screen and (min-width: 768px) {
+          padding-left: 50px;
+        }
+        .HeroHeading {
+          @media screen and (min-width: 768px) {
+            margin-right: 10px;
+          }
+          @media screen and (max-width: 768px) {
+            margin: 0 3.5% 0 0;
+          }
+        }
+      }
+    }
+    img.back-arw {
+      left: 3px;
+      position: fixed;
+      @media screen and (min-width: 768.1px) {
+        width: 35px !important;
+        height: auto !important;
+        margin-top: -12px;
+      }
+      @media screen and (max-width: 768px) {
+        width: 25px !important;
+        height: 25px !important;
+        margin: auto;
+      }
+    }
+  }
+}
+.stock-data-search {
+  position: relative;
+  width: 30%;
+  @media screen and (max-width: 1199.9px) {
+    width: 100% !important;
+  }
+  input {
+    border-radius: 30px;
+    padding: 10px 15px;
+    width: 90.93%;
+    border: none;
+    box-shadow: none;
+    outline: none;
+  }
+  img {
+    display: none;
+  }
+}

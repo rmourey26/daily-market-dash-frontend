@@ -1,0 +1,176 @@
+h4 {
+  overflow-wrap: break-word;
+  font-size: 18px;
+  font-weight: 300;
+  @media screen and (min-width: 1200px) and (max-width: 1440px) {
+    font-size: 17px;
+  }
+  @media screen and (min-width: 376px) and (max-width: 590px) {
+    font-size: 14px;
+  }
+}
+.market-first-data {
+  width: 100%;
+  .exchange {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    overflow-x: auto;
+    padding: 17px 0;
+    @media screen and (min-width: 575px) and (max-width: 768.5px) {
+      border-bottom: none !important;
+    }
+    @media screen and (max-width: 700px) {
+      flex-direction: column;
+    }
+    @media screen and (min-width: 700.1px) and (max-width: 768.5px) {
+      flex-direction: row;
+    }
+    @media screen and (min-width: 1200px) and (max-width: 1299.5px) {
+      & > .col-2 h4 {
+        max-width: 220px;
+      }
+    }
+    .marketTime {
+      @media screen and (min-width: 1257px) {
+        align-items: flex-end;
+        display: flex;
+      }
+      @media screen and (max-width: 768px) {
+        margin-right: 0;
+        text-align: center;
+        width: 100%;
+      }
+      .mCurrency {
+        @media screen and (max-width: 768px) {
+          margin-bottom: 6.5px;
+        }
+        @media screen and (min-width: 1257px) {
+          width: 52%;
+        }
+        h4 {
+          overflow-wrap: break-word;
+          @media screen and (max-width: 575px) {
+            font-weight: 400;
+          }
+          @media screen and (max-width: 992px) {
+            font-size: 16px;
+          }
+          @media screen and (min-width: 1200px) and (max-width: 1440px) {
+            font-size: 17px;
+          }
+        }
+      }
+      .mTime {
+        @media screen and (min-width: 1257px) {
+          text-align: center;
+          width: 48%;
+        }
+        h5 {
+          // color: #D36135;
+          font-weight: 300;
+          @media screen and (min-width: 1366px) {
+            font-size: 16px;
+          }
+        }
+      }
+      
+    }
+    .col-2 {
+      &:nth-child(1) {
+        @media screen and (max-width: 768px) {
+          float: none;
+          margin-bottom: 7.5px;
+          margin-right: 0;
+          width: 100%;
+        }
+        @media screen and (max-width: 768px) and (min-width: 700px) {
+          text-align: left !important;
+        }
+        @media screen and (min-width: 768px) and (max-width: 1023.5px) {
+          margin-right: 3%;
+          width: 27%;
+        }
+        @media screen and (min-width: 1024px) and (max-width: 1256.5px) {
+          margin-right: 3%;
+          width: 40%;
+        }
+        @media screen and (min-width: 1257px) {
+          margin-right: 3%;
+          width: 40%;
+        }
+        @media screen and (min-width: 1200px) and (max-width: 1295px) {
+          margin-right: 8px;
+        }
+      }
+      &:not(:first-child) {
+        @media screen and (min-width: 1295px) {
+          margin-right: 3%;
+        }
+        @media screen and (min-width: 1200px) and (max-width: 1295px) {
+          margin-right: 8px;
+          &:last-child {
+            margin-right: 0 !important;
+          }
+        }
+        &:nth-last-child(2) {
+          margin-right: 0 !important;
+        }
+        @media screen and (min-width: 1024px) and (max-width: 1256.5px) {
+          margin-right: 0 !important;
+        }
+      }
+
+      &:nth-child(2),
+      &:nth-child(4),
+      &:nth-child(5) {
+        @media screen and (max-width: 768px) {
+          display: none;
+        }
+      }
+    }
+    @media screen and (min-width: 768.1px) {
+      .mobile-btnsexchange {
+        display: none;
+      }
+    }
+    .mobile-btnsexchange .row {
+      @media screen and (max-width: 768px) {
+        display: flex;
+        width: 100%;
+        gap: 8px;
+      }
+      @media screen and (max-width: 350px) {
+        gap: 6px !important;
+      }
+      @media screen and (max-width: 1360px) and (min-width: 700px) {
+        max-width: 90%;
+      }
+    }
+    button {
+      background: #9DBBAE;
+      border: none;
+      border-radius: 4px;
+      color: black;
+      cursor: pointer;
+      white-space: nowrap;
+      @media screen and (min-width: 768.1px) {
+        font-size: 14px;
+        font-weight: 400;
+        padding: 5px 18px;
+      }
+      text-align: center;
+      @media screen and (max-width: 768px) {
+        font-size: 12px;
+        font-weight: 300;
+        padding: 5px 7px;
+      }
+      @media screen and (max-width: 350px) {
+        font-size: 10px !important;
+        font-weight: 300;
+        padding: 4px 6px !important;
+      }
+    }
+  }
+}
+

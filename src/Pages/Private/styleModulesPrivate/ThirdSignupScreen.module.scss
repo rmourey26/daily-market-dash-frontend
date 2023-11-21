@@ -1,0 +1,228 @@
+@import "../../../views/Screens/abstracts/mixins.scss";
+@import "../../../views/Screens/abstracts/variable.scss";
+
+
+// ------------ Global CSS -------------------- 
+
+.main-loader{
+  min-height: 100vh;
+  position: relative;
+  // background-image: url("../../../../public/assets/images/mobile_bg-01.png");
+  // @media screen and (min-width:700.5px) {
+  //   background-image: url("../../../../public/assets/images/desktop_bg-01.png");
+  // }
+  background-attachment: fixed;
+  background-size: 100%;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+//  ----------------- Global CSS Ends ----------------------
+.welcome-us {
+  .app_loader{
+    height: auto;
+    padding-top: 12px;
+    text-align: center;
+    @media screen and (min-width:475px) {
+      padding-top: 50px;
+    }
+  }
+  .place-input {
+    text-align: center;
+    height: 292px;
+    position: relative;
+    // @media screen and (min-width:475px) {
+    //     height: 205px;
+    // }
+    h1.email-enter {
+      color: #fff;
+      font-weight: bold;
+      text-align: center;
+      @media screen and (min-width:475px) {
+        span{
+            &:first-child{
+                margin-right: 2.5px;
+            }
+            &:last-child{
+                margin-left: 2.5px;
+            }
+          }
+      }
+    @media screen and (max-width:474.5px) {
+      display: grid;
+      // font-size: 25.5px;
+      // padding: 105.5px 0 40px 0;
+      font-size: 35.5px;
+      padding: 80.5px 0 25px 0;
+    }
+      @media screen and (min-width:475px) {
+        font-size: 39.7px;
+      padding: 57.5px 0 20px 0;
+      br{
+        display: none;
+      }
+      }
+  }
+  h4.email-enters {
+    color: #fff;
+    font-weight: 400;
+    text-align: center;
+  @media screen and (max-width:474.5px) {
+    display: grid;
+    font-size: 22.5px;
+    // padding: 80.5px 0 25px 0;
+  }
+    @media screen and (min-width:475px) {
+      font-size: 18.7px;
+    padding: 20px 0 18px 0;
+    }
+}
+  h4.sub-code.no-error {
+    margin: -10px 0;
+    @media screen and (min-width:475px) {
+      margin: auto;
+    }
+    @media screen and (max-width:474.5px) {
+      margin: 13px 0;
+    }
+}
+
+input {
+  @include place-feild();
+  border: 2.5px solid #ffd966;
+  max-width: 90%;
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translate(-50%, 10px);
+  &:focus {
+    border-color: #ffd966;
+  }
+  @media screen and (min-width: 475px) {
+    border-radius: 10px;
+    bottom: 32px;
+    font-size: 14px;
+    height: 44px;
+    max-width: 312px;
+    padding: 12px;
+  }
+}
+}
+h4.sub-code {
+  text-align: center;
+  color: #fff;
+  font-weight: 400;
+  font-size: 18px;
+  text-transform: none;
+  @media screen and (min-width:475px) {
+    font-size: 13px;
+  }
+  @media screen and (max-width:474px) {
+    font-size: 18px;
+  }
+}
+h4.sub-code + input + .form-error{
+  position: absolute;
+    bottom: -26px;
+    transform: translate(-50%, 10px);
+    left: 50%;
+    @media screen and (max-width: 325px) {
+      width: 100%;
+    }
+    @media screen and (min-width: 475px) {
+      bottom: 10px;
+    }
+}
+.form-error {
+  display: block;
+  color: #D50037;
+  @media screen and (min-width:475px) {
+    margin-top: 8px;
+  }
+  @media screen and (max-width:475px) {
+    bottom: 0;
+    left: 50%;
+    position: absolute;
+    -webkit-transform: translate(-50%);
+    transform: translate(-50%);
+    width: 100%;
+  }
+}
+.dmd-btn {
+  @include continue-button();
+  @media screen and (max-width: 325px) {
+    margin-top: 15%!important;
+  }
+  @media screen and (min-width:475px) {
+    border-radius: 82px;
+    height: auto;
+    padding: 14.5px;
+    width: 225px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin: auto;
+    text-align: center;
+    margin-top: 46px;
+    background: #9DBBAE;
+    margin-top: 40px;
+    color: #fff;
+    &:hover{
+      color: #fff;
+    }
+  }
+}
+}
+.tour {
+  text-align: center;
+  position: absolute;
+  // bottom: 3.5%;
+  width: 100%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  @media screen and (max-height: 700px) {
+  // margin-top: 60px;
+  // padding-bottom: 30px;
+  position: static;
+  -webkit-transform: none;
+  -webkit-transform: initial;
+  transform: none;
+  }
+  a {
+      font-size: 15px;
+      font-weight: 400;
+      text-decoration: underline;
+      color: #fff;
+      text-decoration-thickness: 0;
+      text-underline-position: from-font;
+      cursor: pointer
+  }
+}
+.spinner-loads{
+    position: relative;
+    &:before {
+        background-image: url(../../../../public/assets/images/spinner-loading.svg);
+        background-size: cover;
+        content: "";
+        display: block;
+        height: 100px;
+        left: 50%;
+        overflow: visible;
+        position: fixed;
+        top: 50%;
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        visibility: visible;
+        width: 100px;
+        z-index: 99999999;
+    }
+}
+.app_loader img {
+  max-width: 238px;
+}
+

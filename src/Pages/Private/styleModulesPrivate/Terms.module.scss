@@ -1,0 +1,70 @@
+.TermHomePage{
+    background-image: url("../../../../public/assets/images/mobile_bg-01.png");
+    @media screen and (min-width:700.5px) {
+        background-image: url("../../../../public/assets/images/desktop_bg-01.png");
+    }
+    background-attachment: fixed;
+    background-size: 100%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    .TermMessageSectionPage {
+        height: 100%;
+        overflow-y: auto;
+        color: #fff;
+        padding: 25px;
+        a{
+            color: #fff!important;
+            &:active{
+                color: #fff!important;
+            }
+            &:hover{
+                color: #fff!important;
+            }
+        }
+        h1{
+            text-align: center;
+        }
+        h2{
+            padding-bottom: 15px;
+            padding-top: 15px;
+            text-align: center;
+            color: #fff;
+        }
+
+        li{
+            padding-bottom: 3px;
+            padding-top: 3px;
+            width: auto;
+        }
+
+        p{
+            padding-bottom: 3px;
+            padding-top: 3px;
+        }
+        @media screen and (max-width:992px) {
+            p {
+                font-size: 14px;
+            }
+        }
+        @media screen and (min-width:992.5px) {
+            width: 100%;
+    
+            li{
+                padding-bottom: 5px !important;
+                padding-top: 5px !important;
+            }
+    
+            p{
+                padding-bottom: 5px !important;
+                padding-top: 5px !important;
+            }
+        }
+        @media screen and (max-width:992px) {
+            width: 100%;
+        }
+        .panel p {
+            color: #272a3b;
+            padding: 10px 0px 10px 0px;
+        }
+    }
+}

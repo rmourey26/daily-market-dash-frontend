@@ -1,0 +1,24 @@
+@media screen and (max-width:575px) {
+    .contest-calling.myMoneypg .tabs > .tab h2 {
+        word-break: break-word;
+    }
+    .main-landing-profile.main-pro.wins {
+        padding-left: 11px!important;
+        padding-right: 20px!important;
+    }
+}
+.myMoneypg .tab.tab-active{
+    &::before{
+        z-index: -1!important;
+    }
+}
+@media screen and (max-width:407px) {
+    .myMoneypg .tabs > .tab h2 {
+        padding: 0 2px;
+    }
+}
+@media screen and (max-width:308px) {
+    .myMoneypg .tabs > .tab h2 {
+        font-size: 12px;
+    }
+}

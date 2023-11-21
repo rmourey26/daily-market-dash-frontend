@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <!-- <link rel="icon" href="%PUBLIC_URL%/favicon.ico" /> -->
+      <!-- <meta
+         name="viewport"
+         content="width=device-width, initial-scale=1,  minimum-scale=1, maximum-scale = 1"
+      /> -->
+      <meta name="theme-color" content="#000000" />
+      <meta
+         name="description"
+         content="Daily Market Dash"
+      />
+      <!-- Google tag (gtag.js) --> 
+      <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11391849214"></script> 
+      <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-11391849214'); </script>
+      <!-- Event snippet for Sign-up conversion page --> 
+      <script> gtag('event', 'conversion', {'send_to': 'AW-11391849214/OACMCNLaofEYEP6lh7gq'}); </script>
+      <!-- <base href="https://dailymarketdash.com/mobiledemo/"> -->
+      <!-- <base href="https://dailymarketdash.com/mobileUAT/"> -->
+      <!-- <base href="/public" /> -->
+      <base href="https://app.daytradingwars.com/">      
+
+      <!-- <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" /> -->
+      <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+      <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+      <!-- Favicon -->
+      <link rel="icon" type="image/x-icon" href="https://daytradingwars.com/img/switch.svg" />
+      <link rel="icon" type="image/png" sizes="32x32" href="https://daytradingwars.com/img/switch.svg">
+      <link rel="icon" type="image/png" sizes="16x16" href="https://daytradingwars.com/img/switch.svg">
+      <link rel="apple-touch-icon" sizes="180x180" href="https://daytradingwars.com/img/switch.svg">
+      <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+      <title>Day Trading Wars</title>
+      <!-- <link
+         href="https://cdn.jsdelivr.net/npm/@weavy/uikit-react/dist/css/weavy.css"
+         rel="stylesheet"
+         crossorigin="anonymous"
+      /> -->
+
+      <script>
+         function getMobileOperatingSystem() {
+            var userAgent =
+               navigator.userAgent || navigator.vendor || window.opera;
+
+            // Windows Phone must come first because its UA also contains "Android"
+            if (/windows phone/i.test(userAgent)) {
+               return "Windows Phone";
+            }
+
+            if (/android/i.test(userAgent)) {
+               return "Android";
+            }
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+               return "iOS";
+            }
+
+            return "unknown";
+         }
+
+         let checkType = getMobileOperatingSystem();
+         if (checkType === "Android" || checkType === "unknown") {
+            var meta = document.createElement("meta");
+            meta.name = "viewport";
+            meta.content =
+               "width=device-width, initial-scale=1,  minimum-scale=1";
+            document.getElementsByTagName("head")[0].appendChild(meta);
+         } else if (checkType === "iOS") {
+            var meta = document.createElement("meta");
+            meta.name = "viewport";
+            meta.content =
+               "width=device-width, initial-scale=1,  minimum-scale=1, maximum-scale = 1";
+            document.getElementsByTagName("head")[0].appendChild(meta);
+         }
+      </script>
+   </head>
+   <body>
+      <noscript>You need to enable JavaScript to run this app.</noscript>
+      <div id="root"></div>
+   </body>
+</html>

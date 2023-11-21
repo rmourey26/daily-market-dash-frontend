@@ -1,0 +1,483 @@
+.containr_point{
+    width: 100%;  
+    .myPointsheads{
+        h2{
+            color: #fff;
+    font-size: 35px;
+    padding-left: 6px;
+    padding-top: 6px;
+    @media screen and (max-width:768px) {
+        font-size: 24px;
+    }
+        }
+    }
+    .point_mainContainer {
+        display: flex;
+          flex-direction: row;
+          @media screen and (max-width:613px) {
+            flex-direction: column;
+        }
+          align-items: center;
+          justify-content: center;
+          height: 100%
+        }
+        
+        .yellow_pointBox{
+            align-items: center;
+            background: #ffdc00;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            width: 460px;
+    margin-top: 25px;
+    padding: 15px 0;
+    min-height: 110px;
+    @media screen and (max-width:768px) {
+        width: 315px;
+        margin-top: 15px;
+        padding: 15px;
+    }
+    @media screen and (max-width:360px) {
+        width: 95%!important;
+        margin-top: 15px;
+        padding: 10px;
+    }
+    @media screen and (min-width:768.5px) and (max-width:1340px){
+        min-height: 145px;
+    }
+            
+        }
+        
+        .yellow_pointBox h4{
+            color: black;
+            font-size: 30px;
+            font-weight: 400;
+            @media screen and (max-width:768px) and (min-width:361px){
+                font-size: 22px!important;
+            }
+            @media screen and (max-width:360.5px) {
+                font-size: 16px!important;
+            }
+        }
+        .yellow_pointBox h2{
+            
+            font-size: 38px;
+            font-weight: 700;
+            @media screen and (max-width:768px){
+                font-size: 20px;
+            }
+        }
+        
+        .point_contentContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          
+        
+          .text_content {
+            text-align: center;
+            width: 100%;
+            margin-bottom: 15px;
+            margin-top: 35px;
+            @media screen and (max-width:768px) {
+                margin-bottom: 25px;
+            }
+            @media screen and (min-width:992px) {
+                margin-top: 30px;
+            }
+            h4{
+                font-size: 25px;
+                @media screen and (min-width:992px) {
+                    font-size: 25px;
+                }
+                @media screen and (min-width:575px) and (max-width:768px) {
+                    font-size: 20px;
+                }
+                @media screen and (max-width:574.5px) {
+                    font-size: 14px;
+                }
+                color: white;
+                font-weight: 400;
+            }
+          }
+
+        .Day_pointBox{
+            max-width: 21.3%;
+            flex: 0 0 21.3%;
+            @media screen and (max-width:360px) {
+                max-width: 33%!important;
+                flex: 0 0 33%!important;
+            }
+            @media screen and (max-width:768px) and (min-width:360.1px) {
+                max-width: 35%;
+            flex: 0 0 35%;
+            }
+            .popup_para{
+                margin-top: 10px;
+                font-size: 22px;
+                text-decoration: underline;
+                color: #FEDB01;
+                text-align: center;
+                cursor: pointer;
+                @media screen and (max-width:768px) {
+                    font-size: 16px;
+                }
+            }
+            .Day_point{    
+            border: 3px solid #FAD86E;
+            @media screen and (max-width:768px) {
+                border: 1.5px solid #FEDB01;
+            }
+            display: flex;
+            flex-direction: row;
+            
+            .days{
+                
+                max-width: 50%;
+        flex: 0 0 50%;
+                text-align: center;
+                margin-top: 10px;
+                color: white;
+                @media screen and (max-width:768px) {
+                    margin-top: 5px;
+                }
+                h3{
+                    font-weight: 300;
+                    border-bottom: 3px solid #FAD86E;
+                    @media screen and (max-width:768px) {
+                        border-bottom: 1.5px solid #FEDB01;
+                    }
+                    padding-bottom: 15px;
+                    @media screen and (min-width:511px) and (max-width:600px) {
+                        padding-left: 8px;
+                        padding-right: 8px;
+                    }
+                    @media screen and (max-width:360px) {
+                        font-size: 11px!important;
+                    }
+                    @media screen and (max-width:768px) {
+                        font-size: 13px;
+            padding-bottom: 5px;
+                    }
+                    @media screen and (min-width:992px) {
+                        padding-bottom: 8px;
+                                font-size: 24px;
+                    }
+                }
+               ul{
+                color: white;
+                margin-bottom: 20px;
+                li {
+                    list-style: none;
+                    font-size: 22px;
+                    font-weight: 300;
+                    text-align: center;
+                    margin-top: 0;
+        padding: 4.3px 0;
+        @media screen and (max-width: 1236px) and (min-width: 1043px) {
+            width: auto!important;
+        }
+        @media screen and (max-width:400px) {
+            font-size: 13px;
+        }
+        @media screen and (max-width:768px) and (min-width:400.1px) {
+            font-size: 14px;
+        }
+    
+                }
+               }
+               
+            }
+    
+            .points{
+                max-width: 50%;
+        flex: 0 0 50%;
+                text-align: center;
+                margin-top: 10px;
+                @media screen and (max-width:768px) {
+                    margin-top: 5px;
+                }
+                color: white;
+                h3{
+                    font-weight: 300;
+                    border-bottom: 3px solid #FAD86E;
+                    @media screen and (max-width:768px) {
+                        border-bottom: 1.5px solid #FEDB01;
+                    }
+        padding-bottom: 15px;
+        @media screen and (min-width:511px) and (max-width:600px) {
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+        @media screen and (max-width:360px) {
+            font-size: 11px!important;
+        }
+        @media screen and (max-width:768px) {
+            font-size: 13px;
+            padding-bottom: 5px;
+        }
+        @media screen and (min-width:992px) {
+            padding-bottom: 8px;
+                    font-size: 24px;
+        }
+                }
+               ul{
+                // margin-top: 10px;
+                color: white;
+                li {
+                    list-style: none;
+                    font-size: 22px;
+                    font-weight: 300;
+                    text-align: center;
+                    margin-top: 0;
+        padding: 4.3px 0;
+        @media screen and (max-width: 1236px) and (min-width: 1043px) {
+            width: auto!important;
+        }
+        @media screen and (max-width:400px) {
+            font-size: 13px;
+        }
+        @media screen and (max-width:768px) and (min-width:400.1px) {
+            font-size: 14px;
+        }
+    
+                }
+               }
+               
+            }
+            }
+        }  
+       
+         
+        
+        .second_pointContainer{
+            display: flex;
+            flex-direction: row;
+            @media screen and (max-width:1110px) and (min-width:768px) {
+                align-items: flex-start;
+            }
+            @media screen and (max-width:768px) and (min-width:400.1px) {
+                gap: 2%;
+                align-items: flex-start;
+            }
+            @media screen and (max-width:400px) {
+                gap: 2%;
+                align-items: flex-start;
+            }
+            @media screen and (min-width:1400.6px) and (max-width:1600px) {
+                max-width: 94%;
+            }
+            @media screen and (min-width:1600.6px) {
+                max-width: 1380px;
+            }
+            
+           @media screen and (max-width:1400px) {
+            width: 100%;
+           }
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+        }
+        
+        .Box_parent_container {
+            max-width: 78.7%;
+    flex: 0 0 78.7%;
+    @media screen and (max-width:360px) {
+        max-width: 66%!important;
+        flex: 0 0 66%!important;
+    }
+    @media screen and (max-width:768px) and (min-width:360.1px) {
+        max-width: 65%;
+    flex: 0 0 65%;
+    }
+          }
+        
+        .first_breakBox{
+            display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    @media screen and (max-width:1200px) and (min-width:1110px) {
+        gap: 3%!important;
+    row-gap: 20px!important;
+    }
+    
+    
+    @media screen and (min-width:1400.6px) {
+        gap: 9.5%;
+        row-gap: 50px;
+    }
+    
+   @media screen and (max-width:1400px) and (min-width:768.5px) {
+    gap: 5%;
+    row-gap: 50px;
+   }
+   @media screen and (max-width:768px) {
+    gap: 6%;
+    row-gap: 20px;
+   }
+        }
+        .Second_breakBox{
+            display: flex;
+            flex-direction: row;
+            margin-top: 50px;
+        }
+          
+          .box {
+            // width: 200px;
+            // height: 240px;
+            border: 3px solid #FEDB01;
+            // margin: 10px 25.5px;
+            max-width: 232px;
+            @media screen and (max-width:768px) {
+                max-width: 44%;
+    flex: 0 0 44%;
+    border: 1.5px solid #FEDB01;
+            }
+            
+            
+          
+            
+            .para{
+                color: white;
+    font-size: 24px;
+    font-weight: 300;
+    text-align: center;
+    padding: 25px;
+    @media screen and (max-width:432px) {
+        font-size: 13px;
+    padding: 8px;
+    }
+    @media screen and (max-width:360px) {
+        font-size: 12px!important;
+    }
+    @media screen and (max-width:768px) and (min-width:432.1px) {
+        font-size: 14px;
+    padding: 11.5px;
+    }
+            }
+          
+            
+        
+            .sub_box{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+              justify-content: center;
+              margin: 18px 25px 0 25px;
+                background: #ffdc00;
+                @media screen and (max-width:360px) {
+                    margin: 5px!important;
+                }
+                @media screen and (max-width:768px) {
+                    margin: 12px 14px 0 14px;
+                }
+                // margin-top: 12px;
+                // margin-left: 20px;
+                .H_lebel{
+                    font-size: 45px;
+                    font-weight: 700;
+                    line-height: 0.65;
+                    padding-top: 12px;
+                    @media screen and (max-width:768px) {
+                        font-size: 22px;
+    line-height: 0.2;
+    padding-bottom: 5px;
+                    }
+                }
+                .T_lebel{
+                    font-size: 34px;
+                    font-weight: 700;
+                    padding-bottom: 10px;
+                    @media screen and (max-width:768px) {
+                        font-size: 15px;
+                        padding-bottom: 7px;
+                    }
+                }
+               
+              }
+          }
+              
+                .btn_mainContainer{
+                    width: 400px;
+                    height: 140px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-left: auto;
+    margin-right: auto;
+    @media screen and (max-width:475px) {
+        width: 100%;
+    }
+                .button_Container{
+                    width: 310px;
+    height: 72px;
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+    background-color: #9DBAAD;
+    border-radius: 70px;
+    @media screen and (max-width:768px) {
+        height: 60px;
+    font-size: 24px;
+    }
+    @media screen and (max-width:475px) {
+        height: 40px;
+    font-size: 20px;
+    width: auto;
+    padding: 0 30px;
+    }
+                  
+                    
+                }
+            
+        
+           
+             
+        }
+
+        .bottom_text{
+            color: white;
+            @media screen and (max-width:700px) {
+                h3{
+                    font-size: 12px!important;
+                    font-weight: 600;
+                }
+                span{
+                    font-size: 12px!important;
+                    // font-weight: 300;
+                  
+                }
+                p{
+                    font-size: 12px!important;
+                    // font-weight: 300;
+                }
+            }
+            .bottom_text h3{
+                font-size: 15px;
+                font-weight: 600;
+            }
+            span{
+                font-size: 15px;
+                font-weight: 300;
+              
+            }
+            p{
+                font-size: 15px;
+                font-weight: 300;
+            }
+        }
+
+        .statusBox{
+            margin-bottom: 10px;
+            
+
+        }
+
+        .highlighted{
+            color: #FEDB01;
+            font-weight: 800 !important;
+
+        }
+}
+ 

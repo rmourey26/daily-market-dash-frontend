@@ -1,0 +1,171 @@
+import React, { useEffect, useState } from "react";
+import { Formik } from "formik";
+import { useNavigate } from "react-router";
+// import { userInfo } from "src/data/userInfo";
+import { Link } from "react-router-dom";
+import { useAuth } from "src/hooks/useAuth";
+import axiosInstance from "src/services/axios";
+import { setCookie } from "src/utils/Cookies";
+import { extras } from "src/data/constants";
+
+const ThirdSignupScreen = () => {
+   const { auth, setAuthenticated } = useAuth();
+   const navigate = useNavigate();
+   const email = window.localStorage.getItem("register");
+   const [OTP, setOTP] = useState();
+   const [resendStatus, setResendStatus] = useState("");
+
+   useEffect(() => {
+      axiosInstance
+         .post(
+            "/sendgrid/",
+            { action: "otp" },
+            {
+               headers: {
+                  credsend: email,
+               },
+            }
+         )
+         .then(function (response) {
+            setOTP(response.data.otp);
+         })
+         .catch(function (errors) {
+            console.log(errors);
+         });
+   }, []);
+
+   const sendgridResend = async () => {
+      await axiosInstance
+         .post(
+            "/sendgrid/",
+            { action: "otp" },
+            {
+               headers: {
+                  credsend: email,
+               },
+            }
+         )
+         .then(function (response) {
+            setOTP(response.data.otp);
+         })
+         .catch(function (errors) {
+            console.log(errors);
+         });
+   };
+
+   let UserStatus = window.localStorage.getItem("status");
+   console.log("UserStatus", UserStatus);
+
+   const handleSubmitThird = async (values, setSubmitting) => {
+      setCookie("isLoggedIn", email, 30);
+      setAuthenticated(true);
+      // axiosInstance.post("/sendgrid/sendgrid_loginmsg.php",
+      //    {
+      //       "action": "verify"
+      //    },
+      //    {
+      //       headers: {
+      //          "credsend": email
+      //       }
+      //    }).then(function (request, response) {
+      //       console.log("request", request)
+      //       navigate("/MainLandingPage");
+      //    }).catch(function (errors) {
+      //       console.log(errors)
+      //    })
+      if (UserStatus === "exists") {
+         navigate("/MainLandingPage");
+      } else {
+         navigate("/Info");
+      }
+      // navigate("/MainLandingPage");
+      setSubmitting(false);
+   };
+
+   const handleChangeStatus = () => {
+      // preventDefault();
+      setResendStatus("OTP has been resend");
+   };
+
+   return (
+      <Formik
+         initialValues={{ code: "" }}
+         validate={(values) => {
+            const errors = {};
+            if (!values.code) {
+               errors.code = "Please enter the code";
+               setResendStatus("");
+            } else if (
+               values.code !== OTP &&
+               process.env.NODE_ENV === "production"
+            ) {
+               errors.code = "Incorrect OTP";
+               setResendStatus("");
+            }
+            return errors;
+         }}
+         onSubmit={async (values, { setSubmitting }) => {
+            await handleSubmitThird(values, setSubmitting);
+         }}
+      >
+         {({
+            values,
+            errors,
+            touched,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            isSubmitting,
+         }) => (
+            <form onSubmit={handleSubmit}>
+               <div className="welcome-us main-loader">
+                  <div className="app_loader">
+                     <img src={extras.mainLogo} alt="" className="img-fluid" />
+                  </div>
+                  <div className="place-input">
+                     <h2 className="email-enter">
+                        <span>We&apos;ve sent your access</span>
+                        <span>code to your email</span>
+                     </h2>
+                     <h4 className="sub-code no-error">Enter your code:</h4>
+                     <input
+                        type="password"
+                        name="code"
+                        placeholder=""
+                        className="form-control"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.code}
+                     />
+                     {resendStatus == "" ? (
+                        <span className="form-error">
+                           {errors.code && touched.code && errors.code}
+                        </span>
+                     ) : (
+                        <span className="form-error">{resendStatus}</span>
+                     )}
+                  </div>
+                  <button
+                     type="submit"
+                     disabled={isSubmitting}
+                     className="dmd-btn"
+                  >
+                     Continue
+                  </button>
+                  <div
+                     className="tour"
+                     onClick={() => {
+                        handleChangeStatus();
+                        sendgridResend();
+                     }}
+                  >
+                     <Link to="">Resend access code</Link>
+                  </div>
+               </div>
+            </form>
+         )}
+      </Formik>
+   );
+};
+
+export default ThirdSignupScreen;

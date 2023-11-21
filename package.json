@@ -1,0 +1,61 @@
+{
+    "name": "dailymarketdash",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "axios": "^0.27.2",
+        "firebase": "^9.10.0",
+        "formik": "^2.2.9",
+        "heic2any": "^0.0.4",
+        "html-react-parser": "^3.0.4",
+        "js-sha256": "^0.9.0",
+        "moment": "github:moment/moment",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-image-crop": "^10.0.9",
+        "react-image-file-resizer": "^0.4.8",
+        "react-input-emoji": "^4.2.0",
+        "react-router": "^6.3.0",
+        "react-router-dom": "^6.3.0",
+        "react-scripts": "5.0.1",
+        "react-scroll-wheel-handler": "^2.2.0",
+        "react-toastify": "^9.1.1",
+        "react-webcam": "^7.0.1",
+        "sass": "^1.53.0",
+        "use-state-if-mounted": "^1.0.7",
+        "web-vitals": "^2.1.4"
+    },
+    "scripts": {
+        "start": "react-scripts start && eslint src/**/*.js src/**/*.jsx",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "lint": "eslint src/**/*.js src/**/*.jsx"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "@types/fingerprintjs": "^0.5.28",
+        "@types/lodash.debounce": "^4.0.7",
+        "babel-plugin-direct-import": "^1.0.0",
+        "eslint": "^8.30.0",
+        "eslint-plugin-react": "^7.31.11",
+        "eslint-plugin-unused-imports": "^2.0.0"
+    }
+}

@@ -1,0 +1,120 @@
+@import "/src/common/abstracts/variable.scss";
+@import "/src/common/abstracts/mixins.scss";
+
+
+.modalBackground {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0.7;
+        background-color: rgba(0, 0, 0);
+    }
+
+    .modalContainer {
+        // width: 90vw;
+        width: 60% !important;
+        min-width: 200px;
+        min-height: 471px;
+        position: relative;
+        border-radius: 25px;
+        background-color: #5b5f7a;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: 25px;
+        // overflow-x: auto;
+        z-index: 1000;
+        &::-webkit-scrollbar-thumb {
+            background-color: transparent!important;
+            border-radius: 6px;
+        }
+
+        .modal-title {
+            display: flex;
+            justify-content: flex-end;
+
+
+            button {
+                background-color: transparent;
+                border: none;
+                font-size: 14px;
+                cursor: pointer;
+                color: #fff;
+            }
+        }
+    }
+
+}
+@media screen and (max-height:471px) {
+    .modalBackground .modalContainer {
+        height: auto!important;
+        min-height: -webkit-fill-available;
+    }
+    .watchlist-popup .wrapper .action-button {
+        bottom: 15px!important;
+    }
+    .watchlist-popup .wrapper .input-section {
+        padding-top: 20px!important;
+    }
+    .modalBackground .modalContainer .stock-titleParent {
+        max-height: 200px;
+    }
+    .modalBackground .modalContainer{
+        margin: 20px 0;
+    }
+    .stock-titleParent {
+        max-height: 215px;
+    }
+    .watchlist-popup .wrapper .tabs{
+        height: auto;
+    }
+}
+
+@media screen and (min-width:992px) {
+    .spinner-loads.prof-spinr:before{
+        transform: translate(-50%, 50%)!important;
+    }
+}
+.spinner-loads {
+    @media screen and (min-width:768.5px) {
+        // position: relative;
+    }
+    &::before{
+        content: "";
+    background-image: url(../../../../public/assets/images/spinner-loading.svg);
+    background-size: cover;
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99999999;
+    display: block;
+    overflow: visible;
+    visibility: visible;
+    @media screen and (max-width:768px) {
+        width: 70px;
+        height: 70px;
+    }
+    }
+}
+
+
+.SemiFinalUser .modalBackground::after {
+    opacity: 0.3 !important;
+}

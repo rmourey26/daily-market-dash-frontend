@@ -1,0 +1,392 @@
+@import "src/styles/scss/abstracts/variable.scss";
+@import "src/styles/scss/abstracts/mixins.scss";
+
+.watchlist-popup {
+
+    .wrapper{
+        max-width: 50rem;
+        width: 100%;
+        margin: 0 auto;
+
+        &::before {
+            content: "";
+            display: table;
+        }
+
+        &::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .stock-title {
+            display: flex;
+            margin: 15px 0 0 0;
+            padding-bottom: 15px;
+            justify-content: center;
+        
+            .det {
+                padding-right: 38px;
+        
+                p {
+                    color: #a4a6aa;
+                    font-size: 12px;
+                    margin-top: 2px;
+                    opacity: .75;
+                }
+        
+                h3 {
+                    color: $white;
+                }
+            }
+        }
+
+        .tabs {
+            position: relative;
+            margin: 0;
+            height: 14.75rem;
+
+            .tab {
+                float: left;
+            }
+
+            .tab-content {
+                position: absolute;
+                
+                top: 30px;
+                left: 50%;
+                transform: translate(-50%, 0);
+                color: $white;
+                opacity: 0;
+                transition: all 0.35s;
+
+                z-index: 2;
+                opacity: 1;
+                transition: all 0.35s;
+            }
+
+            .tab.sell label.tab-label {
+                left: -22px;
+            }
+
+            .tab-switch {
+                display: none;
+            }
+
+            .tab-label {
+                position: relative;
+                display: block;
+                padding: 0 1.618em;
+                background: $lightgreyone;
+                color: $white;
+                border-radius: 50px;
+                cursor: pointer;
+                transition: all 0.35s;
+                z-index: 1;
+                border: none;
+                border-radius: 40px;
+                font-size: 14px;
+                font-weight: 600;
+                outline: none;
+                padding: 8px 30px;
+                text-transform: uppercase;
+                top: -0.0625rem;
+        
+                :hover {
+                    top: -0.25rem;
+                    transition: top 0.25s;
+                }
+            }
+
+            .buy {
+                z-index: 2;
+                position: inherit;      
+
+                .tab-switch:checked+.tab-label {
+                    background: $red;
+                    color: $white;
+                    transition: all 0.35s;
+                    z-index: 1;
+                    border: none;
+                    border-radius: 40px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    outline: none;
+                    padding: 8px 30px;
+                    text-transform: uppercase;
+                    top: -0.0625rem;
+                }
+            }   
+
+            .sell {
+                .tab-switch:checked+.tab-label {
+                    background: $btnbg;
+                    color: $white;
+                    transition: all 0.35s;
+                    z-index: 1;
+                    border: none;
+                    border-radius: 40px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    outline: none;
+                    padding: 8px 30px;
+                    text-transform: uppercase;
+                    top: -0.0625rem;               
+                }   
+            }
+        }
+
+        .input-section {
+            padding-top: 15px;
+        
+            div {
+                &:nth-child(1), &:nth-child(2){
+                    display: flex;
+                    justify-content: center;
+                    margin-bottom: 20px;
+                }
+            }
+        
+            h3 {
+                font-size: 14px;
+                text-transform: uppercase;
+                width: 110px;
+            }
+        
+            input {
+                border: none;
+                border-radius: 7px;
+                max-width: 85px;
+                outline: none;
+                padding: 4px;
+                text-align: center;
+            }
+        }
+
+        .action-button {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            padding-top: 0;
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translate(-50%, 0);
+        
+            button {
+                @include continue-button();
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.modalBackground .modalContainer{
+    .stock-titleParent {
+        max-height: 320px;
+        overflow-y: auto;
+        height: 100%;
+        &::-webkit-scrollbar-track {
+
+            border-radius: 20px;
+            background-color: transparent;
+        }
+    
+        &::-webkit-scrollbar {
+            width: 2px;
+            background-color: transparent;
+        }
+    
+        &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+    
+            background-color: transparent;
+        }
+    }
+}
+.watchlist-popup .wrapper .action-button{
+    bottom: 35px;
+}
+.modalBackground .modalContainer .modal-title .btn-all{
+    position: relative;
+    top: 6px;
+    font-size: 18px;
+    // visibility: hidden;
+}
+
+
+@media screen and (max-width:575px) {
+    .modalBackground .modalContainer{
+        width: 85%!important;
+    }
+    .watchlist-popup .wrapper .tabs{
+        display: flex;
+        justify-content: center;
+    }
+    .watchlist-popup .wrapper .tabs .buy, .watchlist-popup .wrapper .tabs .sell{
+        position: static!important;
+    }
+    
+}
+@media screen and (min-width:574.9px) {
+    .watchlist-popup .wrapper .tabs .buy {
+        z-index: 2;
+        position: absolute;
+        left: 40%;
+        transform: translate(-50%, 0);
+    }
+    .watchlist-popup .wrapper .tabs .sell {
+        position: absolute;
+        left: 60%;
+        transform: translate(-50%, 0);
+    }
+}
+
+
+.profile-second-container{
+    color: $white;
+    .row {
+        display: flex;
+        align-items: center;
+        .two-half {
+            &:first-child{
+                width: 30%;
+                margin-right: 30px;
+            }
+            width: 17.5%;
+            h6 {
+                text-transform: capitalize;
+                font-weight: 300;
+            }
+        }
+    }
+    .buy-btn {
+        text-align: center;
+        margin-top: 60px;
+        h6 {
+        background: #D36135 !important;
+        padding: 6.5px 30px !important;
+        font-size: 14px;
+        cursor: pointer;
+        font-weight: bold;
+        display: inline-block;
+        text-transform: capitalize;
+    }
+    }
+}
+.confirm-order.wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    .input-section{
+        width: 100%;
+    }
+    .order-type{
+        display: flex;
+    }
+    h3{
+        color: $white;
+    }
+    button{
+    margin: 30px auto 0;
+    background: #9DBBAE;
+    border: none;
+    color: $white;
+    font-size: 14px;
+    cursor: pointer;
+    height: 28px;
+    width: 150px;
+    border: none;
+    border-radius: 28px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    text-transform: capitalize;
+    }
+    .input-section div {
+        align-items: center;
+    }
+   
+}
+@media screen and (max-width:768px) {
+    .profile-second-container{
+        .buy-btn{
+            margin-top: 30px!important;
+        }
+        .confirm-order.wrapper{
+            margin-top: 20px!important;
+            button{
+                margin-top: 20px!important;
+            }
+        }
+        .row{
+            display: block!important;
+            .two-half{
+                width: 100%!important;
+                margin-right: 0!important;
+                &:not(:first-child){
+                    display: flex;
+                    h6{
+                        width:30%;
+                        margin-bottom: 10px;
+                    }
+                }
+                &:first-child{
+                    margin-bottom: 20px;
+                    padding-top: 15px;
+                }
+
+            }
+            
+        }
+    }
+    .market-last-tab {
+        .last-row{
+            display: block;
+        }
+        .first-col{
+            float: none;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .second-col{
+            float: none;
+            width: 100%;
+        }
+    }
+}
+.profile-second-container.sell-order.wtch ~ .confirm-order.wrapper .input-section {
+    display: flex;
+}
+.stock-titleParent .showDetailList{
+    display: none;
+}
+
+.stock-titleParent .hideDetailList{
+    display: block;
+}
+
+// .spinner {
+//     transform: rotate(-90deg);
+//     width: 60px;
+//     height: 60px;
+
+//     .circle {
+//       stroke-linecap: round;
+//       stroke-dasharray: 360;
+//       stroke-width: 6;
+//       stroke:white;
+//       fill: transparent;
+//       animation: spin .6s ease-in-out 0s normal infinite;
+//     }
+//     @keyframes spin {
+//         from {
+//           stroke-dashoffset: 360;
+//         }
+//         to {
+//           stroke-dashoffset: 40;
+//         }
+//       }
+// }

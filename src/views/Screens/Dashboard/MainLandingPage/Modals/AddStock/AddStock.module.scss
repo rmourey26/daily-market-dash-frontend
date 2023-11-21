@@ -1,0 +1,57 @@
+/*--------------------------------
+GlobalSpinnerLoads
+---------------------------------*/
+.spinner-loads {
+  position: relative;
+  &::before {
+    background-image: url(../../../../../../../public/assets/images/spinner-loading.svg);
+    background-size: cover;
+    content: "";
+    display: block;
+    height: 100px;
+    left: 50%;
+    overflow: visible;
+    position: fixed;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    visibility: visible;
+    width: 100px;
+    z-index: 99999999;
+    @media screen and (max-width: 768px) {
+      height: 70px;
+      width: 70px;
+    }
+  }
+}
+/*--------------------------------
+GlobalSpinnerLoads Ends
+---------------------------------*/
+.watchlist-modal {
+  display: block;
+  .sell-order {
+    display: block;
+    & > h2 {
+      font-weight: 500;
+      margin-bottom: 30px;
+      padding-bottom: 18px;
+      text-align: left;
+      @media screen and (max-width: 575px) {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .appl-search {
+    position: relative;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    input {
+      width: 100%;
+      padding: 10px 10px;
+      border-radius: 10px;
+    }
+    img {
+      display: none;
+    }
+  }
+}

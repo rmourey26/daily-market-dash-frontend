@@ -1,0 +1,86 @@
+/*--------------------------------
+GlobalSpinnerLoads
+---------------------------------*/
+.spinner-loads {
+  position: relative;
+  &::before {
+    background-image: url(../../../../../../../public/assets/images/spinner-loading.svg);
+    background-size: cover;
+    content: "";
+    display: block;
+    height: 100px;
+    left: 50%;
+    overflow: visible;
+    position: fixed;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    visibility: visible;
+    width: 100px;
+    z-index: 99999999;
+    @media screen and (max-width: 768px) {
+      height: 70px;
+      width: 70px;
+    }
+  }
+}
+/*--------------------------------
+GlobalSpinnerLoads Ends
+---------------------------------*/
+.watchlist-popup {
+  display: block;
+  .watchlist-modal {
+    display: block;
+    .profile-second-container {
+      color: #fff;
+      @media screen and (max-width: 599.9px) {
+        position: relative;
+      }
+      & > h2 {
+        margin-bottom: 30px;
+        padding-bottom: 18px;
+        font-weight: 500;
+        @media screen and (max-width: 575px) {
+          margin-bottom: 0;
+        }
+      }
+    }
+    .confirm-order.wrapper {
+      display: block;
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+      max-width: 50rem;
+      width: 100%;
+      @media screen and (min-width: 768px) {
+        position: relative;
+      }
+      .input-section {
+        display: flex;
+        padding-top: 15px;
+        width: 100%;
+        @media screen and (min-width: 574.9px) {
+          margin-top: 165px;
+        }
+        @media screen and (max-width: 574.8px) {
+          margin-top: 45px;
+        }
+        button {
+          align-items: center;
+          background: #9DBBAE;
+          border: none;
+          border-radius: 28px;
+          color: #fff;
+          cursor: pointer;
+          display: flex;
+          font-size: 14px;
+          font-weight: 700;
+          padding: 8px 15px;
+          justify-content: center;
+          margin: 30px auto 0;
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+}
