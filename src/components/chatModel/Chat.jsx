@@ -5,7 +5,7 @@ import "./style.scss";
 import EmptyChat from "src/components/ChatModel/EmptyChat";
 import ChatHeader from "src/components/ChatModel/ChatHeader";
 import { useChat } from "src/hooks/useChat";
-import styles from "./chatModal.module.scss";
+import styles from "src/components/ChatModel/chatModal.module.scss";
 
 const Chat = ({ setChatDisable, chatDisable }) => {
   const { chat, setUsersMessageSeen } = useChat();
