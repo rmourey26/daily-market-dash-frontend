@@ -1,10 +1,10 @@
 import React, { Fragment, useState } from "react";
-import ChatHeader from "./SidebarHeader";
-import SidebarItem from "./SidebarItem";
+import ChatHeader from "src/components/ChatModel/SidebarHeader";
+import SidebarItem from "src/components/ChatModel/SidebarItem";
 import "./style.scss";
 import { useChat } from "src/hooks/useChat";
 import { useAuth } from "src/hooks/useAuth";
-import SidebarSearchItem from "./SidebarSearchItem";
+import SidebarSearchItem from "src/components/ChatModel/SidebarSearchItem";
 import { createChat } from "src/services/firebase";
 import styles from "./chatModal.module.scss";
 
