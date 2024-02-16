@@ -6,7 +6,7 @@ import { useChat } from "src/hooks/useChat";
 import { useAuth } from "src/hooks/useAuth";
 import SidebarSearchItem from "src/components/ChatModel/SidebarSearchItem";
 import { createChat } from "src/services/firebase";
-import styles from "./chatModal.module.scss";
+import styles from "src/components/ChatModel/chatModal.module.scss";
 
 const Sidebar = ({ chatDisable, setChatDisable }) => {
   const { auth } = useAuth();
