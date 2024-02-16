@@ -2,8 +2,8 @@ import React, { Fragment, useEffect } from "react";
 import Messages from "./Messages";
 import Input from "./Input";
 import "./style.scss";
-import EmptyChat from "./EmptyChat";
-import ChatHeader from "./ChatHeader";
+import EmptyChat from "src/components/ChatModel/EmptyChat";
+import ChatHeader from "src/components/ChatModel/ChatHeader";
 import { useChat } from "src/hooks/useChat";
 import styles from "./chatModal.module.scss";
 
