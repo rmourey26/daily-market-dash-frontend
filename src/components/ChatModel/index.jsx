@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-import Sidebar from "./Sidebar";
+import Sidebar from "src/components/chatModel"
 import Chat from "./Chat";
 import { useChat } from "src/hooks/useChat";
 import styles from "./chatModal.module.scss";
